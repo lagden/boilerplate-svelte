@@ -1,0 +1,14 @@
+.*
+bin
+coverage
+node_modules
+rollup_plugin
+public
+test
+docker-compose*
+Dockerfile*
+LICENSE
+README.md
+
+!bin/wait
+!bin/_fn

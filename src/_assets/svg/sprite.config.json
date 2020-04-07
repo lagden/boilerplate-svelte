@@ -1,0 +1,51 @@
+{
+  "log": "info",
+  "shape": {
+    "id": {
+      "separator": "",
+      "generator": "svelte_app_ico_%s"
+    },
+    "dimension": {
+      "precision": 2
+    },
+    "transform": [
+      {
+        "svgo": {
+          "plugins": [
+            {
+              "removeTitle": true
+            },
+            {
+              "removeUnusedNS": true
+            },
+            {
+              "cleanupEnableBackground": true
+            },
+            {
+              "removeEmptyContainers": true
+            },
+            {
+              "removeHiddenElems": true
+            },
+            {
+              "removeAttrs": {
+                "attrs": "fill"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "svg": {
+    "xmlDeclaration": false,
+    "doctypeDeclaration": false,
+    "namespaceIDs": false
+  },
+  "mode": {
+    "symbol": {
+      "dest": "./",
+      "sprite": "Sprite.svelte"
+    }
+  }
+}

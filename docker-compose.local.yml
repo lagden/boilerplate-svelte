@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  app:
+    build:
+      dockerfile: ${DOCKERFILE}
+      context: ./
+      args:
+        PORT: ${PORT}
+        NODE_ENV: ${NODE_ENV}
+        VERSION: ${VERSION}
+        ARG_ENTR_INOTIFY_WORKAROUND: ${ARG_ENTR_INOTIFY_WORKAROUND:-0}
+    command: >
+      /bin/ash -c "
+        bin/watch
+      "
+    environment:
+      WATCH_FOLDERS: "${WATCH_FOLDERS}"
+      WATCH_CMD: "${WATCH_CMD}"
+    volumes:
+      - ./bin:/home/node/app/bin
+      - ./rollup_plugin:/home/node/app/rollup_plugin
+      - ./server:/home/node/app/server
+      - ./src:/home/node/app/src
+      - ./package.json:/home/node/app/package.json
+      - ./rollup.config.js:/home/node/app/rollup.config.js
+      - ./postcss.config.js:/home/node/app/postcss.config.js
+      - ./.eslintrc.js:/home/node/app/.eslintrc.js
+      - ./.gitignore:/home/node/app/.gitignore

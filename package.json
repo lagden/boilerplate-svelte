@@ -1,0 +1,59 @@
+{
+  "name": "@tadashi/svelte-template",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:lagden/svelte-template.git"
+  },
+  "description": "Svelte Boilerplate",
+  "keywords": [
+    "svelte",
+    "template",
+    "boilerplate"
+  ],
+  "main": "server/index.js",
+  "author": "Thiago Lagden",
+  "license": "MIT",
+  "scripts": {
+    "sprite": "svg-sprite --dest ./src/_components/svg/ --svg-rootattrs ./src/_assets/svg/sprite.rootattrs.json --config ./src/_assets/svg/sprite.config.json ./src/_assets/svg/files/*.svg",
+    "eslint": "eslint --config .eslintrc.js --ext .js,.svelte --ignore-path .gitignore .",
+    "rm": "rm -rf ./public/*",
+    "cp": "mkdir -p ./public && cp -r ./static/* ./public/.",
+    "prebuild": "run-s test rm cp",
+    "build": "rollup -c",
+    "dev": "run-s test build start",
+    "test": "npm run eslint",
+    "start": "node server"
+  },
+  "dependencies": {
+    "@tadashi/koa-base": "3.11.0",
+    "debug": "4.1.1",
+    "koa-ctx-cache-control": "1.0.1",
+    "koa-static": "5.0.0",
+    "supports-color": "7.1.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "11.0.2",
+    "@rollup/plugin-node-resolve": "7.1.1",
+    "@tadashi/rollup-plugin-brotli": "1.0.2",
+    "autoprefixer": "9.7.6",
+    "emotion": "10.0.27",
+    "eslint": "6.8.0",
+    "eslint-config-xo": "0.29.1",
+    "eslint-plugin-svelte3": "2.7.3",
+    "eslint-plugin-unicorn": "18.0.1",
+    "npm-run-all": "4.1.5",
+    "postcss-conditionals": "2.1.0",
+    "postcss-easy-import": "3.0.0",
+    "postcss-functions": "3.0.0",
+    "postcss-mixins": "6.2.3",
+    "postcss-nested": "4.2.1",
+    "postcss-simple-vars": "5.0.2",
+    "rollup": "2.3.3",
+    "rollup-plugin-svelte": "5.2.1",
+    "rollup-plugin-terser": "5.3.0",
+    "svelte": "3.20.1",
+    "svelte-preprocess-postcss": "1.1.1",
+    "svg-sprite": "1.5.0"
+  }
+}

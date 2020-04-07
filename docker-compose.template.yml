@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  app:
+    image: ${REGISTRY}/${IMAGE}:${VERSION}
+    command: >
+      /bin/ash -c "
+        node server
+      "
+    environment:
+      PORT: ${PORT}
+      NODE_ENV: ${NODE_ENV}
+      DEBUG: ${DEBUG}
+      DEBUG_PREFIX: ${DEBUG_PREFIX}
+      DEBUG_COLORS: ${DEBUG_COLORS}
+      DEBUG_HIDE_DATE: ${DEBUG_HIDE_DATE}
+      APP_NAMESPACE: ${APP_NAMESPACE}
+      TARGET_JS: ${TARGET_JS}
+      PUBLIC_PATH: ${PUBLIC_PATH}
+    ports:
+      - ${PORT_PUBLISHED}:${PORT}
+    networks:
+      - net
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+networks:
+  net:
+    name: ${NETWORK_NAME}
