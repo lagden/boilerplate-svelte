@@ -1,7 +1,8 @@
 <script>
 	import {css} from '../lib/emotion'
-	import {loadEnv} from '../lib/common.js'
+	import {getEnv} from '../lib/env'
 
+	import Head from './Head.svelte'
 	import Sprite from './svg/Sprite.svelte'
 	import Icon from './svg/Icon.svelte'
 
@@ -15,31 +16,44 @@
 	const ico = css`
 		width: 24px;
 		height: 24px;
-		fill: red;
 	`
 
-	const env = loadEnv()
+	const cores = {
+		red: css`fill: red;`,
+		orange: css`fill: orange;`,
+		blue: css`fill: blue;`,
+		green: css`fill: green;`
+	}
+
+	const env = getEnv()
 
 	let showInfo = false
-	let icon = 'svelte_app_ico_check'
+	let icon = 'boilerplate_svelte_check'
 
 	function toggle() {
 		showInfo = !showInfo
 	}
 </script>
 
+<Head />
 <Sprite />
 
 <button type="button" class="{orange} _btn" on:click={toggle}>
 	Show/Hide Info
-	<Icon name="{icon}" class="{ico}" />
+	<Icon name="{icon}" class="{ico} {cores.red}" />
+	<Icon name="{icon}" class="{ico} {cores.blue}" />
+	<Icon name="{icon}" class="{ico} {cores.green}" />
 </button>
 
+<input type="text" class="_g__frm_atom_base">
+
 {#if showInfo}
-	<pre>{JSON.stringify(env, null, '  ')}</pre>
+	<pre>{JSON.stringify(env, undefined, '  ')}</pre>
 {/if}
 
-<style type="text/css" postcss>
+<style type="text/scss">
+	@import '../_assets/sass/mixin';
+
 	._btn {
 		background-color: var(--button-background-color);
 		border: 0;
@@ -52,5 +66,8 @@
 		overflow: hidden;
 		padding: 0.8em 4em;
 		position: relative;
+		@include mq(900px) {
+			background-color: blue;
+		}
 	}
 </style>

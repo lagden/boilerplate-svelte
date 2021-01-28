@@ -1,64 +1,66 @@
 # Stage: 1
-FROM node:12.16-alpine3.11 as build
+FROM node:14.15-alpine3.12 as build
 
 LABEL autodelete="true"
 LABEL maintainer="docker@lagden.in"
 
-ARG PORT=3000
 ARG NODE_ENV="development"
-ARG VERSION="dev"
 ARG BASE="/home/node"
 
-ENV PORT=$PORT
 ENV NODE_ENV=$NODE_ENV
-ENV VERSION=$VERSION
 ENV BASE=$BASE
-ENV APP=$BASE/app
+ENV BASE_APP=$BASE/app
 
-# Svelte ARGs
-ARG APP_NAMESPACE
+# Extra ARGs
+ARG VERSION="dev"
+ARG APP_ENV="development"
+#---
+ARG APP_NS
 ARG TARGET_JS
-ARG PUBLIC_PATH
+ARG BASE_PATH
+ARG DEBUG
 
-ENV APP_NAMESPACE=$APP_NAMESPACE
+# Extra ENVs
+ENV VERSION=$VERSION
+ENV APP_ENV=$APP_ENV
+#---
+ENV APP_NS=$APP_NS
 ENV TARGET_JS=$TARGET_JS
-ENV PUBLIC_PATH=$PUBLIC_PATH
+ENV BASE_PATH=$BASE_PATH
+ENV DEBUG=$DEBUG
 
 WORKDIR $BASE
-USER node
 
-RUN mkdir -p $APP
-COPY . $APP
+ADD --chown=node:node . $BASE_APP
 
-WORKDIR $APP
-RUN npm ci --ignore-scripts
+WORKDIR $BASE_APP
+
+RUN npm ci --ignore-scripts --dev
+RUN npm rb node-sass
 RUN npm run build
 
+
 # Stage: 2
-FROM node:12.16-alpine3.11
+FROM node:14.15-alpine3.12
 
 LABEL maintainer="docker@lagden.in"
 
-ARG PORT=3000
-ARG NODE_ENV="development"
-ARG VERSION="dev"
+ARG NODE_ENV="production"
 ARG BASE="/home/node"
 
-ENV PORT=$PORT
 ENV NODE_ENV=$NODE_ENV
-ENV VERSION=$VERSION
 ENV BASE=$BASE
-ENV APP=$BASE/app
+ENV BASE_APP=$BASE/app
 
 WORKDIR $BASE
+
+COPY --from=build $BASE_APP/public $BASE_APP/public
+COPY --from=build $BASE_APP/server $BASE_APP/server
+COPY --from=build $BASE_APP/package.json $BASE_APP
+COPY --from=build $BASE_APP/package-lock.json $BASE_APP
+
+WORKDIR $BASE_APP
+
+RUN npm ci --ignore-scripts --production
+
 USER node
-
-RUN mkdir -p $APP
-WORKDIR $APP
-
-COPY --from=build $APP/public $APP/public
-COPY --from=build $APP/server $APP/server
-COPY --from=build $APP/package.json $APP
-COPY --from=build $APP/package-lock.json $APP
-
-RUN npm ci --production --ignore-scripts

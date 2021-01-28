@@ -1,5 +1,5 @@
 <script>
-	import {filterProps} from '../../lib/common.js'
+	import {filterProps} from '../../lib/common'
 
 	export let name = ''
 

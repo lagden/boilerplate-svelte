@@ -1,4 +1,7 @@
-import createEmotion from 'create-emotion'
+import hexid from '@tadashi/hex-id'
+import createEmotion from '@emotion/css/create-instance'
+
+const key = `svemo${hexid().replace(/\d/g, '')}`
 
 export const {
 	flush,
@@ -11,6 +14,4 @@ export const {
 	css,
 	sheet,
 	cache
-} = createEmotion({
-	key: 'teleportresidencialcss'
-})
+} = createEmotion({key})

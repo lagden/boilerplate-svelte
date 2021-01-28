@@ -4,24 +4,19 @@ DIR="$( cd -P "$( dirname "$0" )" && pwd )"
 
 # Import functions
 . $DIR/_fn
+. $DIR/_env
 
 # Go to project root
 cd $DIR
 cd ..
 
-CURR_FOLDER=`pwd`
+CURR_FOLDER="$( pwd )"
 OPT="development"
 COMPOSE_TEMPLATE="${CURR_FOLDER}/docker-compose.template.yml"
 COMPOSE_LOCAL="${CURR_FOLDER}/docker-compose.local.yml"
 
 # ENV File
-ENVFILE="${CURR_FOLDER}/.env-${OPT}"
-if test ! -e $ENVFILE; then
-	abort "Environment file not found"
-fi
-
-set -a
-source $ENVFILE
+load_env $CURR_FOLDER $OPT
 
 docker-compose \
 	-f $COMPOSE_TEMPLATE \
@@ -31,7 +26,5 @@ docker-compose \
 	--remove-orphans
 
 test $? -ne 0 && abort "Docker Compose Failed" || ok "Stopped"
-
-# docker rmi $(docker images -q -f "dangling=true" -f "label=autodelete=true")
 
 exit 0

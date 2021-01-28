@@ -2,13 +2,15 @@
 bin
 coverage
 node_modules
-rollup_plugin
 public
 test
 docker-compose*
 Dockerfile*
 LICENSE
 README.md
+
+!.eslintrc.js
+!.gitignore
 
 !bin/wait
 !bin/_fn

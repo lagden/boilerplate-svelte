@@ -6,8 +6,8 @@ const www = require('koa-static')
 const cc = require('koa-ctx-cache-control')
 const debug = require('./lib/debug')
 
-const regexJS = /[\d_a-z-]+.js/
-const regexWidget = /widget.js/
+const regexJS = /[\w-/]+.js/i
+const regexWidget = /widget.js/i
 
 const app = base({
 	error: true,
@@ -24,6 +24,7 @@ app
 		let cacheControl = 'max-age=604800, public'
 
 		const testJs = regexJS.test(ctx.path)
+
 		if (testJs) {
 			cacheControl = 'max-age=31536000, immutable'
 
