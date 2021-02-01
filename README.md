@@ -43,7 +43,7 @@ Acesse o URL: [http://[::1]:5000/](http://[::1]:5000/).
 
 #### Test
 
-Para executar os testes da sua API.
+Para executar os testes da sua aplicação.
 
 ```shell
 bin/test -b
@@ -58,7 +58,7 @@ echo 'username' > .registry-user
 echo 'password' > .registry-passwd
 ```
 
-Sempre que executar o `bin/deploy`, também será executado o `bin/image` que faz o `build` da imagem e faz o `push` para o seu **Registry**.
+Sempre que executar o `bin/deploy`, também será executado o `bin/image` que faz o `build` da imagem e também faz o `push` para o seu **Registry**.
 
 
 ### Local
@@ -81,7 +81,7 @@ Mas é possível ajustar o para utilizar o [nodemon](https://github.com/remy/nod
 
 #### Test
 
-Para executar os testes da sua aplicaçãp.
+Para executar os testes da sua aplicação.
 
 ```shell
 npm test
