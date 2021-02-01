@@ -67,7 +67,7 @@
 		padding: 0.8em 4em;
 		position: relative;
 		@include mq(900px) {
-			background-color: blue;
+			background-color: rgb(181, 255, 245);
 		}
 	}
 </style>

@@ -7,20 +7,32 @@ services:
         node server
       "
     environment:
-      PORT: ${PORT}
-      NODE_ENV: ${NODE_ENV}
-      DEBUG: ${DEBUG}
-      DEBUG_PREFIX: ${DEBUG_PREFIX}
-      DEBUG_COLORS: ${DEBUG_COLORS}
       DEBUG_HIDE_DATE: ${DEBUG_HIDE_DATE}
-      APP_NAMESPACE: ${APP_NAMESPACE}
+      DEBUG_COLORS: ${DEBUG_COLORS}
+      DEBUG_PREFIX: ${DEBUG_PREFIX}
+      DEBUG: ${DEBUG}
+      NODE_ENV: ${NODE_ENV}
+      APP_ENV: ${APP_ENV}
+      APP_NS: ${APP_NS}
+      VERSION: ${VERSION}
+      PORT: ${PORT}
+      PORT_PUBLISHED: ${PORT_PUBLISHED}
       TARGET_JS: ${TARGET_JS}
-      PUBLIC_PATH: ${PUBLIC_PATH}
+      BASE_PATH: ${BASE_PATH}
+      # coloque seus envs
     ports:
       - ${PORT_PUBLISHED}:${PORT}
     networks:
       - net
     deploy:
+      replicas: ${DEPLOY_REPLICAS}
+      resources:
+        limits:
+          cpus: ${DEPLOY_RESOURCES_LIMITS_CPUS}
+          memory: ${DEPLOY_RESOURCES_LIMITS_MEMORY}
+        reservations:
+          cpus: ${DEPLOY_RESERVATIONS_LIMITS_CPUS}
+          memory: ${DEPLOY_RESERVATIONS_LIMITS_MEMORY}
       restart_policy:
         condition: on-failure
 

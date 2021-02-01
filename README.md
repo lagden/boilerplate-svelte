@@ -1,4 +1,4 @@
-# Svelte APP Template
+# Boilerplate Svelte
 
 [![XO code style][xo-img]][xo]
 
@@ -6,45 +6,88 @@
 [xo]:            https://github.com/sindresorhus/xo
 
 
-Inicie o desenvolvimento de seu App em Svelte
+Boilerplate para desenvolvimento de uma aplicação utilizando Svelte
 
 
-## Desenvolvimento
+## Como usar
 
-O desenvolvimento deste projeto via Docker tem alguns recursos, por exemplo o `watch`.  
-É possível trabalhar local (sem Docker), mas não é o foco do projeto.
+Existem 2 maneiras de trabalhar:
 
-Segue abaixo alguns comandos para auxiliar no desenvolvimento:
+- [Docker](#docker)
+- [Local](#local)
 
-```
-bin/start
-bin/stop
-bin/logs
-```
 
-**Dica:**
+Use o `degit` para fazer o `scaffolding` do projeto:
 
-Passe a opção `-h` para exibir a ajuda, exemplo:
-
-```
-$ bin/start -h
-
-  Usage: bin/start [-bd] [-s <service>]
-
-  Options:
-    -b   Build image
-    -d   Run containers in the background
-    -s   Docker compose service name
-    -h   Show usage
-
+```shell
+npx degit lagden/boilerplate-svelte meu_app
+cd meu_app
 ```
 
 
-## Team
+### Docker
 
-[<img src="https://avatars.githubusercontent.com/u/130963?s=390" alt="Lagden" width="90">](https://github.com/lagden) 
+Inicie a aplicação.
+
+```shell
+bin/start -b
+```
+
+Sobre o parâmetro:
+
+ - `-b` Efetua o build da imagem (é importante passar quando houver alteração no `package.json`)
+
+
+Acesse o URL: [http://[::1]:5000/](http://[::1]:5000/).
+
+
+#### Test
+
+Para executar os testes da sua API.
+
+```shell
+bin/test -b
+```
+
+#### Deploy (opcional)
+
+Crie os arquivos de usuário e senha do **Registry**.
+
+```shell
+echo 'username' > .registry-user
+echo 'password' > .registry-passwd
+```
+
+Sempre que executar o `bin/deploy`, também será executado o `bin/image` que faz o `build` da imagem e faz o `push` para o seu **Registry**.
+
+
+### Local
+
+Instale as dependências e inicie a aplicação:
+
+```shell
+bin/zera
+bin/watch_local -e development
+```
+
+Acesse o URL: [http://[::1]:5000/](http://[::1]:5000/).
+
+
+**Atenção!**
+
+O `bin/watch` depende do [entr](https://github.com/eradman/entr).  
+Mas é possível ajustar o para utilizar o [nodemon](https://github.com/remy/nodemon)
+
+
+#### Test
+
+Para executar os testes da sua aplicaçãp.
+
+```shell
+npm test
+```
 
 
 ## License
 
-[MIT](https://github.com/lagden/svelte-template/blob/master/LICENSE) © Thiago Lagden
+MIT © [Thiago Lagden](https://github.com/lagden)

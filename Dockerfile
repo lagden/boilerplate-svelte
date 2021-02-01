@@ -2,7 +2,7 @@
 FROM node:14.15-alpine3.12 as build
 
 LABEL autodelete="true"
-LABEL maintainer="docker@lagden.in"
+LABEL maintainer="lagden@gmail.com"
 
 ARG NODE_ENV="development"
 ARG BASE="/home/node"
@@ -43,7 +43,7 @@ RUN npm run build
 # Stage: 2
 FROM node:14.15-alpine3.12
 
-LABEL maintainer="docker@lagden.in"
+LABEL maintainer="lagden@gmail.com"
 
 ARG NODE_ENV="production"
 ARG BASE="/home/node"
