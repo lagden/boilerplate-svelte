@@ -52,9 +52,9 @@ docker build \
 	--build-arg APP_ENV=${APP_ENV} \
 	--build-arg APP_NS=${APP_NS} \
 	--build-arg VERSION=${VERSION} \
+	--build-arg DEBUG=${DEBUG} \
 	--build-arg TARGET_JS=${TARGET_JS} \
 	--build-arg BASE_PATH=${BASE_PATH} \
-	--build-arg DEBUG=${DEBUG} \
 	--compress --force-rm --no-cache . --tag $TAG_IMAGE
 test $? -ne 0 && abort "Falha no build da image --> ${build}" || ok "Build image ok --> ${build}"
 
