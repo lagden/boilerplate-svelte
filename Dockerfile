@@ -35,7 +35,7 @@ ADD --chown=node:node . $BASE_APP
 
 WORKDIR $BASE_APP
 
-RUN npm ci --ignore-scripts --dev
+RUN npm ci --ignore-scripts --also=dev
 RUN npm rb node-sass
 RUN npm run build
 
