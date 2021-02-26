@@ -1,3 +1,4 @@
 {
-  "id": "boilerplate_svelte_%s"
+  "id": "boilerplate_svelte_%s",
+  "removeTitle": true
 }

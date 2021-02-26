@@ -1,5 +1,6 @@
-public/
-docker-compose-*.yml
+/docker-compose-*.yml
+/public/
+/resource/
 
 # Logs
 logs

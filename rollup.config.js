@@ -1,31 +1,20 @@
 import brotli from '@tadashi/rollup-plugin-brotli'
 import widget from '@tadashi/rollup-plugin-widget'
-import envs from '@tadashi/rollup-plugin-env'
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import css from 'rollup-plugin-css-only'
 import {terser} from 'rollup-plugin-terser'
 import svelte from 'rollup-plugin-svelte'
 import sveltePreprocess from 'svelte-preprocess'
-import debug from 'debug'
+import envs from './resource/env.js'
 
 const {
-	APP_NS = '_app',
-	APP_ENV = 'development',
-	NODE_ENV = 'development',
-	TARGET_JS = '_widget',
-	BASE_PATH = 'http://[::1]:3000',
-	VERSION = 'dev',
-	DEBUG = '_app_default_debug:*'
+	NODE_ENV = 'development'
 } = process.env
 
-const _log = debug(DEBUG)
-_log('--> APP_NS', APP_NS)
-_log('--> TARGET_JS', TARGET_JS)
-_log('--> BASE_PATH', BASE_PATH)
-_log('--> NODE_ENV', NODE_ENV)
-_log('--> VERSION', VERSION)
-_log('--> DEBUG', DEBUG)
+const {
+	BASE_URL = ''
+} = envs
 
 const ignoreWarnings = new Set([
 	'a11y-no-onchange',
@@ -38,7 +27,7 @@ const format = 'es' // or 'system'
 export default {
 	input: ['src/main.js'],
 	manualChunks: {
-		emotion: ['@emotion/css']
+		emotion_css: ['@emotion/css']
 	},
 	output: {
 		format,
@@ -49,20 +38,7 @@ export default {
 		sourcemap: false
 	},
 	plugins: [
-		resolve({
-			browser: true,
-			dedupe: ['svelte']
-		}),
 		commonjs(),
-		envs(APP_NS, {
-			APP_NS,
-			APP_ENV,
-			NODE_ENV,
-			TARGET_JS,
-			BASE_PATH,
-			VERSION,
-			DEBUG
-		}),
 		svelte({
 			compilerOptions: {
 				dev: !production
@@ -87,21 +63,23 @@ export default {
 				handler(warning)
 			}
 		}),
-		css({
-			output: 'bundle.css'
+		css({output: 'bundle.css'}),
+		resolve({
+			browser: true,
+			dedupe: ['svelte']
 		}),
 		widget({
-			publicPath: `${BASE_PATH}/scripts`,
+			publicPath: `${BASE_URL}/scripts`,
 			output: 'widget.js',
-			esm: format === 'es'
+			es: format === 'es',
+			nodeEnv: NODE_ENV
 		}),
 		production && terser({ecma: 2020}),
 		production && brotli({
 			additional: [
 				'public/scripts/widget.js',
 				'public/scripts/bundle.css',
-				'public/index.html',
-				'public/main.css'
+				'public/index.html'
 			]
 		})
 	],

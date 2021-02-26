@@ -1,8 +1,4 @@
-/* eslint unicorn/prefer-query-selector: 0 */
-
-// Namespace da aplicação
-// A mesma que foi definida no .env-base
-const APP_NS = 'boilerplate_svelte'
+import envs from '../../resource/env.js'
 
 // Cache das informações armazenadas no dataset
 const _data = new Map()
@@ -12,7 +8,7 @@ const _data = new Map()
  * @return {object} Retorna um objeto com as variáveis
  */
 export function getEnv() {
-	return globalThis.process?.env?.[APP_NS] ?? {}
+	return envs ?? {}
 }
 
 /**

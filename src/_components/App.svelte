@@ -2,8 +2,8 @@
 	import {css} from '../lib/emotion'
 	import {getEnv} from '../lib/env'
 
-	import Head from './Head.svelte'
-	import Sprite from './svg/Sprite.svelte'
+	import Head from './_global/Head.svelte'
+	import Sprite from './_global/Sprite.svelte'
 	import Icon from './svg/Icon.svelte'
 
 	const orange = css`
@@ -44,8 +44,6 @@
 	<Icon name="{icon}" class="{ico} {cores.blue}" />
 	<Icon name="{icon}" class="{ico} {cores.green}" />
 </button>
-
-<input type="text" class="_g__frm_atom_base">
 
 {#if showInfo}
 	<pre>{JSON.stringify(env, undefined, '  ')}</pre>
