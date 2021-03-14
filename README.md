@@ -55,7 +55,10 @@ mv Dockerfile.front Dockerfile
 
 ⚠️ **Importante**
 
-No arquivo `.env-base`, altere a variável de ambiente `REQUIRE_GEN` para `1`.
+No arquivo `.env-base`, faça alguns ajustes:
+
+- altere a variável de ambiente `REQUIRE_GEN` para `1`.
+- ajuste o `WATCH_CMD` para `"find server src static -type f | entr -r npm start"`
 
 
 ## Como utilizar

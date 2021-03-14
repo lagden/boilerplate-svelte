@@ -19,7 +19,7 @@
     "sprite": "spritetify -d ./src/_assets/svg/files/ -o ./src/_components/_global/Sprite.svelte -c",
     "eslint": "eslint --config .eslintrc.js --ext .js,.svelte --ignore-path .gitignore .",
     "rm": "rm -rf ./public/*",
-    "cp": "mkdir -p ./public && cp -R ./static/. ./public",
+    "cp": "sh bin/public",
     "cleanup": "run-s rm cp",
     "rollup": "rollup -c",
     "serve": "node server",
