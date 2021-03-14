@@ -44,16 +44,16 @@ npx degit lagden/boilerplate-docker-nodejs/files#main ./ --force
 
 ⚠️ **Importante**
 
-Como é uma aplicação **frontend**, faça o seguinte:
-
-- Apague o `Dockerfile`
-- Renomeie o  arquivo `Dockerfile.front` para `Dockerfile`
-
+Como é uma aplicação **frontend**, ajuste os `Dockerfiles`.
 
 ```
 rm Dockerfile
+rm Dockerfile.dev
 mv Dockerfile.front Dockerfile
+mv Dockerfile.dev.front Dockerfile.dev
 ```
+
+---
 
 No arquivo `.env-base`, faça alguns ajustes:
 
