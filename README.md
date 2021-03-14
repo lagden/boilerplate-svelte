@@ -40,6 +40,10 @@ npx degit lagden/boilerplate-envs/files#main ./ --force
 npx degit lagden/boilerplate-docker-nodejs/files#main ./ --force
 ```
 
+---
+
+⚠️ **Importante**
+
 Como é uma aplicação **frontend**, faça o seguinte:
 
 - Apague o `Dockerfile`
@@ -50,10 +54,6 @@ Como é uma aplicação **frontend**, faça o seguinte:
 rm Dockerfile
 mv Dockerfile.front Dockerfile
 ```
-
----
-
-⚠️ **Importante**
 
 No arquivo `.env-base`, faça alguns ajustes:
 
