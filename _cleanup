@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Go to current directory
+CURR_FOLDER="$(pwd)"
+cd $CURR_FOLDER
+
+# envs
+rm .env-*
+
+# bin
+rm -rf bin
+
+# docker
+rm .dockerignore
+rm docker-compose*
+rm Dockerfile*
+
+exit 0

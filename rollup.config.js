@@ -45,9 +45,6 @@ export default {
 			},
 			preprocess: sveltePreprocess({
 				sourceMap: !production,
-				defaults: {
-					style: 'scss'
-				},
 				postcss: {
 					plugins: [
 						require('autoprefixer')()
@@ -82,8 +79,5 @@ export default {
 				'public/index.html'
 			]
 		})
-	],
-	watch: {
-		clearScreen: false
-	}
+	]
 }

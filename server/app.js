@@ -21,11 +21,13 @@ cc(app)
 
 app
 	.use(async (ctx, next) => {
+		// 7 dias
 		let cacheControl = 'max-age=604800, public'
 
 		const testJs = regexJS.test(ctx.path)
 
 		if (testJs) {
+			// 365 dias
 			cacheControl = 'max-age=31536000, immutable'
 
 			const testWidget = regexWidget.test(ctx.path)

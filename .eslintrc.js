@@ -71,6 +71,6 @@ module.exports = {
 		'svelte3/ignore-warnings': w => {
 			return ignoreWarnings.has(w && w.code)
 		},
-		'svelte3/ignore-styles': attributes => attributes.postcss
+		'svelte3/ignore-styles': attributes => attributes.postcss || attributes.lang
 	}
 }

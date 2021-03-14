@@ -41,15 +41,15 @@
 <button type="button" class="{orange} _btn" on:click={toggle}>
 	Show/Hide Info
 	<Icon name="{icon}" class="{ico} {cores.red}" />
-	<Icon name="{icon}" class="{ico} {cores.blue}" />
 	<Icon name="{icon}" class="{ico} {cores.green}" />
+	<Icon name="{icon}" class="{ico} {cores.blue}" />
 </button>
 
 {#if showInfo}
 	<pre>{JSON.stringify(env, undefined, '  ')}</pre>
 {/if}
 
-<style type="text/scss">
+<style lang="scss">
 	@import '../_assets/sass/mixin';
 
 	._btn {

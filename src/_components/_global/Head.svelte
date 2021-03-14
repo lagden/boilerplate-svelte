@@ -28,7 +28,7 @@
 		}
 	</style>
 
-	<style>
+	<style lang="scss">
 		@import '../../_assets/sass/global';
 	</style>
 </svelte:head>
