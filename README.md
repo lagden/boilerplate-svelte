@@ -50,7 +50,7 @@ Como é uma aplicação **frontend**, ajuste os `Dockerfiles`.
 rm Dockerfile
 rm Dockerfile.dev
 mv Dockerfile.front Dockerfile
-mv Dockerfile.dev.front Dockerfile.dev
+mv Dockerfile.front.dev Dockerfile.dev
 ```
 
 ---
