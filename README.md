@@ -33,11 +33,11 @@ Existem algumas dependências.
 **Exemplo:**
 
 ```
-npx degit lagden/boilerplate-svelte projeto
+yarn dlx degit lagden/boilerplate-svelte projeto
 cd projeto
-npx degit lagden/boilerplate-bin/files#main bin
-npx degit lagden/boilerplate-envs/files#main ./ --force
-npx degit lagden/boilerplate-docker-nodejs/files#main ./ --force
+yarn dlx degit lagden/boilerplate-bin/files#main bin
+yarn dlx degit lagden/boilerplate-envs/files#main ./ --force
+yarn dlx degit lagden/boilerplate-docker-nodejs/files#main ./ --force
 ```
 
 ---
@@ -48,9 +48,7 @@ Como é uma aplicação **frontend**, ajuste os `Dockerfiles`.
 
 ```
 rm Dockerfile
-rm Dockerfile.dev
 mv Dockerfile.front Dockerfile
-mv Dockerfile.front.dev Dockerfile.dev
 ```
 
 ---
