@@ -21,6 +21,17 @@ Boilerplate para desenvolvimento de uma aplicação utilizando Svelte.
 
 ## Instalação
 
+⚠️ **Importante**
+
+Instale o [Yarn 2 aka Berry](https://yarnpkg.com/getting-started/install).
+
+```
+npm install -g yarn
+yarn set version berry
+```
+
+---
+
 Use o [degit](https://github.com/Rich-Harris/degit) para fazer o `scaffolding` do projeto.
 
 Existem algumas dependências.
@@ -83,7 +94,7 @@ bin/start
 
 ⚠️ **Ressalvas**
 
-No **docker**, caso seja instalado um novo pacote, é necessário fazer o `build` da imagem novamente.  
+No **docker**, caso seja adicionado um novo pacote, é necessário fazer o `build` da imagem novamente.  
 Pare o container (`command+c` ou `control+c`) e rode novamente passando o parâmetro `-b`:
 
 ```shell
@@ -110,16 +121,10 @@ bin/watch_local
 
 Como o [entr](https://github.com/eradman/entr) não roda no **Windows**, existe uma solução alternativa.
 
-Instale o `nodemon` global:
-
-```shell
-npm i -g nodemon
-```
-
 Crie o arquivo `.env-local` na raiz do projeto e insira:
 
 ```
-WATCH_LOCAL_CMD="nodemon -e js,json --watch server --exec npm start"
+WATCH_LOCAL_CMD="yarn dlx nodemon -e js,json --watch server --exec npm start"
 ```
 
 Então, execute o comando:
