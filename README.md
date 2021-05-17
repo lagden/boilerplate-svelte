@@ -67,7 +67,7 @@ mv Dockerfile.front Dockerfile
 No arquivo `.env-base`, faça alguns ajustes:
 
 - altere a variável de ambiente `REQUIRE_GEN` para `1`.
-- ajuste o `WATCH_CMD` para `"find src static -type f | entr -r npm start"`
+- ajuste o `WATCH_CMD` para `"find src static -type f | entr -r ${START_CMD}"`
 
 
 ## Como utilizar
@@ -124,7 +124,7 @@ Como o [entr](https://github.com/eradman/entr) não roda no **Windows**, existe 
 Crie o arquivo `.env-local` na raiz do projeto e insira:
 
 ```
-WATCH_LOCAL_CMD="yarn dlx nodemon -e js,json --watch server --exec npm start"
+WATCH_LOCAL_CMD="yarn dlx nodemon -e js,json,svelte --watch src --watch static --exec ${START_CMD}"
 ```
 
 ⚠️ **Ressalvas**
@@ -132,7 +132,7 @@ WATCH_LOCAL_CMD="yarn dlx nodemon -e js,json --watch server --exec npm start"
 Pode instalar global também e configurar da seguinte forma:
 
 ```
-WATCH_LOCAL_CMD="nodemon -e js,json --watch server --exec npm start"
+WATCH_LOCAL_CMD="nodemon -e js,json,svelte --watch src --watch static --exec ${START_CMD}"
 ```
 
 ---
