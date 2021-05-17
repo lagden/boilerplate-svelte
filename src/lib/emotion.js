@@ -1,7 +1,8 @@
-import hexid from '@tadashi/hex-id'
 import createEmotion from '@emotion/css/create-instance'
+import {getEnv} from './env'
 
-const key = `emotion${hexid().replace(/\d/g, '')}`
+const {APP_NS = 'app'} = getEnv()
+const key = `emotion-${APP_NS.replace(/\d/g, '').replace('_', '-')}`
 
 export const {
 	flush,

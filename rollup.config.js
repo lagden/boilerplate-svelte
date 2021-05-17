@@ -6,6 +6,7 @@ import css from 'rollup-plugin-css-only'
 import {terser} from 'rollup-plugin-terser'
 import svelte from 'rollup-plugin-svelte'
 import sveltePreprocess from 'svelte-preprocess'
+import autoprefixer from 'autoprefixer'
 import envs from './resource/env.js'
 
 const {
@@ -47,7 +48,7 @@ export default {
 				sourceMap: !production,
 				postcss: {
 					plugins: [
-						require('autoprefixer')()
+						autoprefixer()
 					]
 				}
 			}),

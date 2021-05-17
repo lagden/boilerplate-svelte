@@ -3,13 +3,15 @@
 const ignoreWarnings = new Set(['a11y-no-onchange', 'a11y-label-has-associated-control'])
 
 module.exports = {
-	parserOptions: {
-		ecmaVersion: 2020,
-		sourceType: 'module'
-	},
 	env: {
-		es2020: true,
+		es2021: true,
+		node: true,
 		browser: true
+	},
+	parser: "@babel/eslint-parser",
+	parserOptions: {
+		ecmaVersion: 12,
+		sourceType: 'module'
 	},
 	plugins: ['html', 'svelte3'],
 	extends: ['xo', 'plugin:unicorn/recommended'],
@@ -63,9 +65,7 @@ module.exports = {
 		],
 		// 'unicorn/no-abusive-eslint-disable': 0,
 		// Bug do svelte lint
-		'no-multiple-empty-lines': ['error', {max: 2, maxBOF: 2, maxEOF: 0}],
-		// Bug no ctx.body Koa
-		'require-atomic-updates': 0
+		'no-multiple-empty-lines': ['error', {max: 2, maxBOF: 2, maxEOF: 0}]
 	},
 	settings: {
 		'svelte3/ignore-warnings': w => {

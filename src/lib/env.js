@@ -23,7 +23,7 @@ export function getData() {
 	const el = document.getElementById(TARGET_JS)
 	const o = {}
 	if (el) {
-		for (let [key, value] of Object.entries(el.dataset)) {
+		for (const [key, value] of Object.entries(el.dataset)) {
 			o[key] = value
 		}
 	}

@@ -1,8 +1,11 @@
 .registry-*
 .env-local
 docker-compose-*.yml
-public
+public/*
 resource
+
+# Public
+!public/.gitkeep
 
 # Boilerplate
 _cleanup

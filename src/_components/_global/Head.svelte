@@ -9,16 +9,13 @@
 
 	<style type="text/css">
 		html {
-			background-color: hsl(216, 10%, 28%);
-			height: 100%;
-			overflow-x: hidden;
+			background-color: hsl(15deg 100% 50%);
 		}
 
 		body {
-			position: relative;
-			overflow-x: hidden;
-			overflow-y: auto;
-			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
 			font-family: 'Lato', sans-serif;
 			font-size: 1em;
 		}

@@ -1,18 +1,5 @@
 /**
- * Remove as propriedades reservadas do objeto
- * @param {object} props    - Objeto
- * @param {array}  reserved - Chaves
- * @return {object} Retorna um objeto filtrado
- */
-export function filterProps(props, reserved = []) {
-	return Object.keys(props).reduce((acc, cur) => {
-		const isTrue = cur.includes('$$') || cur.includes('Class') || reserved.includes(cur)
-		return isTrue ? acc : {...acc, [cur]: props[cur]}
-	}, {})
-}
-
-/**
- * Helper para ler a query string
+ * Ler a query string
  * @return {object} Retorna um objeto URLSearchParams
  */
 export function params() {
@@ -22,21 +9,28 @@ export function params() {
 }
 
 /**
- * Helper para gerar uma url com a qs + data-*
+ * Transforma a query string em objeto
+ * @return {object} Retorna um objeto
+ */
+export function qs() {
+	const _data = {}
+	for (const [k, v] of params()) {
+		_data[k] = v
+	}
+	return _data
+}
+
+/**
+ * Gera uma url com a qs + data-*
  * @param {string} endpoint - Endereço de disparo
  * @param {object} data     - Objeto
  * @return {string} Retorna uma URL
  */
-export function fullURL(endpoint, data) {
+export function fullURL(endpoint, data = {}) {
 	const url = new URL(endpoint)
-	const qs = params()
-	let _data = {}
+	const _qs = qs()
 
-	for (const [k, v] of qs) {
-		_data[k] = v
-	}
-
-	for (let [k, v] of Object.entries({..._data, ...data})) {
+	for (const [k, v] of Object.entries({..._qs, ...data})) {
 		url.searchParams.set(k, v)
 	}
 
@@ -47,7 +41,7 @@ export function fullURL(endpoint, data) {
  * Convert um Array para Objeto
  * @param {Array}  collection - Uma coleção de objetos
  * @param {string} key        - Nome do campo que será a chave
- * @return {object} Retorna o token ou false
+ * @return {object} Retorna o objeto
  */
 export function arr2obj(key, collection = []) {
 	if (Array.isArray(collection) === false) {
@@ -56,7 +50,7 @@ export function arr2obj(key, collection = []) {
 
 	const obj = {}
 	for (const data of collection) {
-		obj[`_${data[key]}`] = data
+		obj[data[key]] = data
 	}
 	return obj
 }
@@ -85,7 +79,7 @@ export function uniqueValue(...args) {
 			collection = [...collection, ...v.split(' ')]
 		}
 	}
-	let unique = new Set(collection)
+	const unique = new Set(collection)
 	return [...unique].join(' ')
 }
 
@@ -103,4 +97,8 @@ export function findRecursive(collection, key, value) {
 			}
 		}
 	}
+}
+
+export function copyObject(obj) {
+	return JSON.parse(JSON.stringify(obj))
 }

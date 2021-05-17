@@ -1,4 +1,6 @@
 {
   "id": "boilerplate_svelte_%s",
-  "removeTitle": true
+  "removeTitle": true,
+  "removeUselessStrokeAndFill": false,
+  "removeAttrs": {}
 }
