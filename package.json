@@ -17,7 +17,7 @@
   "author": "Thiago Lagden",
   "license": "MIT",
   "scripts": {
-    "sprite": "spritetify -d ./src/_assets/svg/files/ -o ./src/_components/_global/Sprite.svelte -c",
+    "sprite": "spritetify -d ./src/_assets/svg/ -o ./src/_components/_global/Sprite.svelte -c",
     "eslint": "eslint --config .eslintrc.cjs --ext .js,.svelte --ignore-path .gitignore .",
     "rm": "rm -rf ./public/*",
     "cp": "cp -R ./static/* ./public/.",
@@ -30,11 +30,11 @@
     "start": "run-s build serve"
   },
   "dependencies": {
-    "sirv-cli": "1.0.11"
+    "sirv-cli": "1.0.12"
   },
   "devDependencies": {
-    "@babel/core": "7.14.2",
-    "@babel/eslint-parser": "7.14.2",
+    "@babel/core": "7.14.3",
+    "@babel/eslint-parser": "7.14.3",
     "@babel/plugin-syntax-top-level-await": "7.12.13",
     "@emotion/css": "11.1.3",
     "@rollup/plugin-commonjs": "19.0.0",
@@ -42,16 +42,17 @@
     "@tadashi/rollup-plugin-brotli": "1.0.2",
     "@tadashi/rollup-plugin-widget": "2.0.0",
     "@tadashi/spritetify": "1.0.0",
-    "autoprefixer": "10.2.5",
-    "eslint": "7.26.0",
+    "@tadashi/svelte-icon": "lagden/svelte-icon#1.0.0",
+    "autoprefixer": "10.2.6",
+    "eslint": "7.27.0",
     "eslint-config-xo": "0.36.0",
     "eslint-plugin-html": "6.1.2",
     "eslint-plugin-svelte3": "3.2.0",
     "eslint-plugin-unicorn": "32.0.1",
     "node-sass": "6.0.0",
     "npm-run-all": "4.1.5",
-    "postcss": "8.2.15",
-    "rollup": "2.47.0",
+    "postcss": "8.3.0",
+    "rollup": "2.50.1",
     "rollup-plugin-css-only": "3.1.0",
     "rollup-plugin-svelte": "7.1.0",
     "rollup-plugin-terser": "7.0.2",

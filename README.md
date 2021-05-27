@@ -14,6 +14,7 @@ Boilerplate para desenvolvimento de uma aplicação utilizando Svelte.
         - [entr](#entr)
         - [nodemon](#nodemon)
     - [teste](#teste)
+    - [sprites](#sprites)
 - [Imagem (docker)](#imagem-docker)
 - [Deploy (docker)](#deploy-docker)
 - [License](#license)
@@ -160,10 +161,26 @@ bin/local/test
 bin/docker/test -s app
 ```
 
+### sprites
+
+No projeto existe o arquivo `src/_components/_global/Sprite.svelte`.  
+Esse arquivo é gerado pelo automaticamente pelo `spritetify`
+
+```shell
+npm run sprite
+```
+
+O script pega todos os arquivos **\*.svg** que estão na pasta `src/_assets/svg` e gera o sprite.
+
+⚠️ **Ressalvas**
+
+No arquivo `spritetify.config.json` é possível setar as propriedades de otimização.  
+As opções são as mesmas do [SVGO](https://github.com/svg/svgo#built-in-plugins).
+
 
 ## Imagem
 
-Crie os arquivos de usuário e senha do **registry** que será utilizado.
+Crie os arquivos de usuário e senha do **registry** que serão utilizados.
 
 ```shell
 echo 'username' > .registry-user

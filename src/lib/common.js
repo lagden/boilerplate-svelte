@@ -1,4 +1,17 @@
 /**
+ * Remove as propriedades reservadas do objeto
+ * @param {object} props    - Objeto
+ * @param {array}  reserved - Chaves
+ * @return {object} Retorna um objeto filtrado
+ */
+export function filterProps(props, reserved = []) {
+	return Object.keys(props).reduce((acc, cur) => {
+		const isTrue = cur.includes('$$') || cur.includes('Class') || reserved.includes(cur)
+		return isTrue ? acc : {...acc, [cur]: props[cur]}
+	}, {})
+}
+
+/**
  * Ler a query string
  * @return {object} Retorna um objeto URLSearchParams
  */
@@ -38,67 +51,83 @@ export function fullURL(endpoint, data = {}) {
 }
 
 /**
- * Convert um Array para Objeto
- * @param {Array}  collection - Uma coleção de objetos
- * @param {string} key        - Nome do campo que será a chave
+ * Helper copia um objeto evitando referência
+ * @param {object} v - Objeto que será copiado
  * @return {object} Retorna o objeto
  */
-export function arr2obj(key, collection = []) {
-	if (Array.isArray(collection) === false) {
-		return collection
-	}
-
-	const obj = {}
-	for (const data of collection) {
-		obj[data[key]] = data
-	}
-	return obj
+export function copyObject(obj) {
+	return JSON.parse(JSON.stringify(obj))
 }
 
 /**
- * Helper para fazer o sort de um Array em ordem alfabética
- * @param {string} prop - Propriedade que será comparada
- * @return {function} Retorna a função de comparação
+ * Helper converte um valor para número
+ * @param {*} v - Valor que será convertido para número
+ * @return {(number|string)} Se sucesso retorna o número
  */
-export function alphaSort(prop) {
-	return (a, b) => {
-		if (a[prop] < b[prop]) {
-			return -1
-		}
-		if (a[prop] > b[prop]) {
-			return 1
-		}
-		return 0
+export function parseNumbers(v) {
+	const regex = /^\d+\.(0+)?$/
+	if (regex.test(v)) {
+		return v
 	}
+
+	const value = Number(v)
+	if (Number.isNaN(value)) {
+		return v
+	}
+
+	return value
 }
 
-export function uniqueValue(...args) {
-	let collection = []
-	for (const v of args) {
-		if (typeof v === 'string') {
-			collection = [...collection, ...v.split(' ')]
-		}
+/**
+ * Helper converte um valor para boolean
+ * @param {*} v - Valor que será convertido para boolean
+ * @return {(boolean|string)} Se sucesso retorna o boolean
+ */
+export function parseBooleans(v) {
+	const boolRegex = /^(?:true|false|1|0)$/i
+	if (boolRegex.test(v)) {
+		v = v.toLowerCase() === 'true' || v === '1'
 	}
-	const unique = new Set(collection)
-	return [...unique].join(' ')
+	return v
 }
 
-export function findRecursive(collection, key, value) {
-	for (const item of collection) {
-		for (const [k, v] of Object.entries(item)) {
-			if (k === key && v === value) {
-				return item
-			}
-			if (Array.isArray(v)) {
-				const _item = findRecursive(v, key, value)
-				if (_item) {
-					return _item
-				}
-			}
-		}
+export function parses(parse) {
+	const opts = {
+		number: parseNumbers,
+		boolean: parseBooleans
 	}
+
+	return opts[parse]
 }
 
-export function copyObject(obj) {
-	return JSON.parse(JSON.stringify(obj))
+/**
+ * Helper para evitar problema com eslint "unused"
+ */
+export function noop() {}
+
+/**
+ * Verifica se a variável é um Array
+ * @param {array}   data         - variável
+ * @param {boolean} [empty=true] - se falso, verifica se a variável contém dados
+ * @return {boolean} Retorna true ou false
+ */
+export function checkArray(data, empty = true) {
+	const isArray = data && Array.isArray(data)
+	if (empty) {
+		return isArray
+	}
+	return isArray && data.length > 0
+}
+
+/**
+ * Helper para converter objeto em string
+ * @param {object}  data
+ * @return {string} Retorna as propriedades
+ */
+export function obj2style(data) {
+	const style = new Set()
+	for (const [k, v] of Object.entries(data)) {
+		style.add(`${k}: ${v}`)
+	}
+	return [...style].join(';')
 }

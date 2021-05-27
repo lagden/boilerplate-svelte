@@ -1,13 +1,21 @@
 <script>
 	import {css} from '../lib/emotion'
+	import {obj2style} from '../lib/common'
 
+	import Icon from '@tadashi/svelte-icon'
 	import Head from './_global/Head.svelte'
 	import Sprite from './_global/Sprite.svelte'
-	import Icon from './svg/Icon.svelte'
 
-	const ico = css`
-		width: 300px;
-		height: auto;
+	// Exemplo via style
+	const style = obj2style({
+		'--tadashi_svelte_icon_width': '300px'
+	})
+
+	// Exemplo via css emotion
+	const icon = css`
+		width: 24px;
+		height: 24px;
+		fill: hsl(0deg 0% 100%);
 	`
 </script>
 
@@ -15,13 +23,15 @@
 <Sprite />
 
 <section class="_boilerplate_svelte_wrapper">
-	<Icon name="boilerplate_svelte_logo" class="{ico}" />
-	<h1 class="_boilerplate_svelte_wrapper__title">Boilerplate Svelte</h1>
+	<Icon name="boilerplate_svelte_logo" {style} />
+	<h1 class="_boilerplate_svelte_wrapper__title">
+		<Icon name="boilerplate_svelte_flask" class="{icon}" />
+		<span>Boilerplate Svelte</span>
+	</h1>
 </section>
 
 <style lang="scss">
 	@import '../_assets/sass/fn';
-	@import '../_assets/sass/mixin';
 
 	._boilerplate_svelte_wrapper {
 		display: flex;
@@ -33,6 +43,11 @@
 	}
 
 	._boilerplate_svelte_wrapper__title {
+		align-items: center;
+		display: inline-grid;
+		grid-auto-columns: auto;
+		grid-auto-flow: column;
+		grid-gap: 0.3em;
 		text-align: center;
 	}
 </style>
