@@ -22,12 +22,12 @@
     "rm": "rm -rf ./public/*",
     "cp": "cp -R ./static/* ./public/.",
     "keep": "cp ./static/.gitkeep ./public/.gitkeep",
-    "cleanup": "run-s rm cp keep",
-    "rollup": "rollup -c",
-    "serve": "sirv public --cors --host --port ${PORT}",
+    "clean": "run-s cp keep",
+    "roll": "rollup -c",
+    "serve": "sirv public --dev --cors --host --port ${PORT}",
     "test": "npm run eslint",
-    "build": "run-s test cleanup rollup",
-    "start": "run-s build serve"
+    "build": "run-s test clean roll",
+    "start": "run-p build serve"
   },
   "dependencies": {
     "sirv-cli": "1.0.12"
