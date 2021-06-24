@@ -14,5 +14,5 @@ export const {
 	keyframes,
 	css,
 	sheet,
-	cache
+	cache,
 } = createEmotion({key})

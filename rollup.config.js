@@ -10,17 +10,17 @@ import autoprefixer from 'autoprefixer'
 import envs from './resource/env.js'
 
 const {
-	NODE_ENV = 'development'
+	NODE_ENV = 'development',
 } = process.env
 
 const {
-	BASE_URL = ''
+	BASE_URL = '',
 } = envs
 
 const ignoreWarnings = new Set([
 	'a11y-no-onchange',
 	'a11y-label-has-associated-control',
-	'css-unused-selector'
+	'css-unused-selector',
 ])
 const production = NODE_ENV === 'production'
 const format = 'es' // or 'system'
@@ -28,7 +28,7 @@ const format = 'es' // or 'system'
 export default {
 	input: ['src/main.js'],
 	manualChunks: {
-		emotion_css: ['@emotion/css']
+		emotion_css: ['@emotion/css'],
 	},
 	output: {
 		format,
@@ -36,21 +36,21 @@ export default {
 		chunkFileNames: '[name]-[hash].js',
 		dir: 'public/scripts',
 		compact: true,
-		sourcemap: false
+		sourcemap: false,
 	},
 	plugins: [
 		commonjs(),
 		svelte({
 			compilerOptions: {
-				dev: !production
+				dev: !production,
 			},
 			preprocess: sveltePreprocess({
 				sourceMap: !production,
 				postcss: {
 					plugins: [
-						autoprefixer()
-					]
-				}
+						autoprefixer(),
+					],
+				},
 			}),
 			emitCss: true,
 			onwarn(warning, handler) {
@@ -59,26 +59,26 @@ export default {
 					return
 				}
 				handler(warning)
-			}
+			},
 		}),
 		css({output: 'bundle.css'}),
 		resolve({
 			browser: true,
-			dedupe: ['svelte']
+			dedupe: ['svelte'],
 		}),
 		widget({
 			publicPath: `${BASE_URL}/scripts`,
 			output: 'widget.js',
 			es: format === 'es',
-			nodeEnv: NODE_ENV
+			nodeEnv: NODE_ENV,
 		}),
 		production && terser({ecma: 2020}),
 		production && brotli({
 			additional: [
 				'public/scripts/widget.js',
 				'public/scripts/bundle.css',
-				'public/index.html'
-			]
-		})
-	]
+				'public/index.html',
+			],
+		}),
+	],
 }

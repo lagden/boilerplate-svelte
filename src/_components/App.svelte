@@ -8,7 +8,7 @@
 
 	// Exemplo via style
 	const style = obj2style({
-		'--tadashi_svelte_icon_width': '300px'
+		'--tadashi_svelte_icon_width': '300px',
 	})
 
 	// Exemplo via css emotion

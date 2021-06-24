@@ -94,7 +94,7 @@ export function parseBooleans(v) {
 export function parses(parse) {
 	const opts = {
 		number: parseNumbers,
-		boolean: parseBooleans
+		boolean: parseBooleans,
 	}
 
 	return opts[parse]
