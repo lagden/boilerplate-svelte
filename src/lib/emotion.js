@@ -4,6 +4,7 @@ import {getEnv} from './env'
 const {APP_NS = 'app'} = getEnv()
 const key = `emotion-${APP_NS.replace(/\d/g, '').replace(/_/g, '-')}`
 
+// prettier-ignore
 export const {
 	flush,
 	hydrate,

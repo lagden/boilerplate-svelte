@@ -25,7 +25,7 @@
 <section class="_boilerplate_svelte_wrapper">
 	<Icon name="boilerplate_svelte_logo" {style} />
 	<h1 class="_boilerplate_svelte_wrapper__title">
-		<Icon name="boilerplate_svelte_flask" class="{icon}" />
+		<Icon name="boilerplate_svelte_flask" class={icon} />
 		<span>Boilerplate Svelte</span>
 	</h1>
 </section>
