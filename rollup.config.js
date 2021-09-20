@@ -2,11 +2,12 @@ import brotli from '@tadashi/rollup-plugin-brotli'
 import widget from '@tadashi/rollup-plugin-widget'
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
+// import html from '@rollup/plugin-html'
+// import sri from 'rollup-plugin-sri'
 import css from 'rollup-plugin-css-only'
 import {terser} from 'rollup-plugin-terser'
 import svelte from 'rollup-plugin-svelte'
-import sveltePreprocess from 'svelte-preprocess'
-import autoprefixer from 'autoprefixer'
+import config from './svelte.config.js'
 import envs from './resource/env.js'
 
 const {
@@ -17,11 +18,6 @@ const {
 	BASE_URL = '',
 } = envs
 
-const ignoreWarnings = new Set([
-	'a11y-no-onchange',
-	'a11y-label-has-associated-control',
-	'css-unused-selector',
-])
 const production = NODE_ENV === 'production'
 const format = 'es' // or 'system'
 
@@ -40,27 +36,7 @@ export default {
 	},
 	plugins: [
 		commonjs(),
-		svelte({
-			compilerOptions: {
-				dev: !production,
-			},
-			preprocess: sveltePreprocess({
-				sourceMap: !production,
-				postcss: {
-					plugins: [
-						autoprefixer(),
-					],
-				},
-			}),
-			emitCss: true,
-			onwarn(warning, handler) {
-				// console.log('warning.code', warning.code)
-				if (ignoreWarnings.has(warning.code)) {
-					return
-				}
-				handler(warning)
-			},
-		}),
+		svelte(config),
 		css({output: 'bundle.css'}),
 		resolve({
 			browser: true,
@@ -77,8 +53,15 @@ export default {
 			additional: [
 				'public/scripts/widget.js',
 				'public/scripts/bundle.css',
-				'public/index.html',
+				// 'public/index.html',
 			],
 		}),
+		// production && html({
+		// 	publicPath: 'public/scripts/',
+		// 	fileName: 'xxx.html',
+		// }),
+		// production && sri({
+		// 	publicPath: 'public/scripts/',
+		// }),
 	],
 }

@@ -42,11 +42,9 @@ export function qs() {
 export function fullURL(endpoint, data = {}) {
 	const url = new URL(endpoint)
 	const _qs = qs()
-
 	for (const [k, v] of Object.entries({..._qs, ...data})) {
 		url.searchParams.set(k, v)
 	}
-
 	return url.href
 }
 
@@ -69,26 +67,29 @@ export function parseNumbers(v) {
 	if (regex.test(v)) {
 		return v
 	}
-
 	const value = Number(v)
 	if (Number.isNaN(value)) {
 		return v
 	}
-
 	return value
 }
 
 /**
  * Helper converte um valor para boolean
  * @param {*} v - Valor que será convertido para boolean
- * @return {(boolean|string)} Se sucesso retorna o boolean
+ * @param {boolean} force - Força a conversão
+ * @return {(boolean|any)} Se sucesso retorna o boolean
  */
-export function parseBooleans(v) {
-	const boolRegex = /^(?:true|false|1|0)$/i
-	if (boolRegex.test(v)) {
-		v = v.toLowerCase() === 'true' || v === '1'
+export function parseBooleans(v, force = true) {
+	if (typeof v === 'boolean') {
+		return v
 	}
-	return v
+	const _v = String(v)
+	const boolRegex = /^(?:true|false|1|0)$/i
+	if (boolRegex.test(_v)) {
+		return _v.toLowerCase() === 'true' || _v === '1'
+	}
+	return force ? Boolean(v) : v
 }
 
 export function parses(parse) {
@@ -96,7 +97,6 @@ export function parses(parse) {
 		number: parseNumbers,
 		boolean: parseBooleans,
 	}
-
 	return opts[parse]
 }
 
