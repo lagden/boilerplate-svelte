@@ -21,12 +21,11 @@
     "eslint": "eslint --config .eslintrc.cjs --ext .js,.svelte --ignore-path .gitignore .",
     "prettier": "prettier -c --plugin-search-dir=. ./src/**/*.{svelte,js}",
     "format": "prettier --write --plugin-search-dir=. ./src/**/*.{svelte,js}",
-    "lint": "run-s prettier eslint",
     "rollup": "rollup -c",
-    "test": "npm run lint",
+    "test": "run-s eslint",
     "build": "run-s test rollup",
     "prestart": "npm test",
-    "start": "vite"
+    "start": "vite --cors --port ${PORT} --host ${HOSTNAME_CUSTOM}"
   },
   "dependencies": {
     "sirv-cli": "1.0.14"
