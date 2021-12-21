@@ -24,11 +24,11 @@ Boilerplate para desenvolvimento de uma aplicação utilizando Svelte.
 
 ⚠️ **Importante**
 
-Instale o [Yarn 2 aka Berry](https://yarnpkg.com/getting-started/install).
+Instale o [Yarn](https://yarnpkg.com/getting-started/install).
 
 ```
 npm install -g yarn
-yarn set version berry
+yarn set version stable
 ```
 
 ---
@@ -48,7 +48,7 @@ Existem algumas dependências.
 yarn dlx degit lagden/boilerplate-svelte#master projeto
 cd projeto
 yarn dlx degit lagden/boilerplate-bin/files#main bin
-yarn dlx degit lagden/boilerplate-eslint/files/frontend/.eslintrc.yml#main ./.eslintrc.yml --force
+yarn dlx degit lagden/boilerplate-eslint/files/frontend/.eslintrc.cjs#main ./ --force
 yarn dlx degit lagden/boilerplate-envs/files#main ./ --force
 yarn dlx degit lagden/boilerplate-docker-nodejs/files#main ./ --force
 ```
@@ -57,19 +57,10 @@ yarn dlx degit lagden/boilerplate-docker-nodejs/files#main ./ --force
 
 ⚠️ **Importante**
 
-Como é uma aplicação **frontend**, ajuste os `Dockerfiles`.
-
-```
-rm Dockerfile
-mv Dockerfile.front Dockerfile
-```
-
----
-
 No arquivo `.env-base`, faça alguns ajustes:
 
 - altere a variável de ambiente `REQUIRE_GEN` para `1`.
-- ajuste o `WATCH_CMD` para `"find src static -type f | entr -r ${START_CMD}"`
+- ajuste o `WATCH_CMD` para `"find src static -type f | entr -nr ${START_CMD}"`
 
 
 ## Como utilizar
@@ -77,18 +68,18 @@ No arquivo `.env-base`, faça alguns ajustes:
 Após finalizado o `scaffolding` do projeto, instale os pacotes.
 
 ```shell
-bin/node/zera
+bin/node/zera -y
 ```
 
-Feito isso, o projeto está pronto para rodar.
+Feito isso, o projeto está pronto para funcionar.
 
-Se for rodar **local**, utilize:
+Para rodar **local**, utilize:
 
 ```shell
 bin/local/start
 ```
 
-Se for rodar via **docker**, utilize:
+E via **docker**, utilize:
 
 ```shell
 bin/docker/start
@@ -97,7 +88,7 @@ bin/docker/start
 ⚠️ **Ressalvas**
 
 No **docker**, caso seja instalado um novo pacote, é necessário fazer o `build` da imagem novamente.  
-Pare o container (`bin/docker/stop` ou `command + c` ou `control + c`) e rode novamente passando o parâmetro `-b`:
+Pare o container (`bin/docker/stop` ou `control + c`) e rode novamente passando o parâmetro `-b`:
 
 ```shell
 bin/docker/start -b
@@ -106,66 +97,22 @@ bin/docker/start -b
 
 ### watch
 
-O **watch** reinicia a aplicação caso ocorra alguma alteração.  
-Rodando via **docker** isso ocorre por padrão, mas **local** é necessário fazer algumas instalações e configurações.
-
-
-#### entr
-
-Se estiver rodando em **BSD** ou **Mac OS** ou **Linux**, basta instalar o [entr](https://github.com/eradman/entr) e executar:
+Tudo controlado pelo `vite`.
 
 ```shell
-bin/local/watch
-```
-
-
-#### nodemon
-
-Como o [entr](https://github.com/eradman/entr) não roda no **Windows**, existe uma solução alternativa.
-
-Crie o arquivo `.env-local` na raiz do projeto e insira:
-
-```
-WATCH_LOCAL_CMD="yarn dlx nodemon -e js,json,svelte --watch src --watch static --exec ${START_CMD}"
-```
-
-⚠️ **Ressalvas**
-
-Pode instalar global também e configurar da seguinte forma:
-
-```
-WATCH_LOCAL_CMD="nodemon -e js,json,svelte --watch src --watch static --exec ${START_CMD}"
-```
-
----
-
-Então, execute o comando:
-
-```shell
-bin/local/watch
+npm start
 ```
 
 
 ### teste
 
-Para executar os testes.
+🚧 WIP
 
-**local:**
-
-```shell
-bin/local/test
-```
-
-**docker:**
-
-```shell
-bin/docker/test -s app
-```
 
 ### sprites
 
-No projeto existe o arquivo `src/_components/_global/Sprite.svelte`.  
-Esse arquivo é gerado pelo automaticamente pelo `spritetify`
+No projeto tem o arquivo `src/_components/_global/Sprite.svelte`.  
+Ele é gerado automaticamente pelo `spritetify`
 
 ```shell
 npm run sprite
@@ -181,7 +128,7 @@ As opções são as mesmas do [SVGO](https://github.com/svg/svgo#built-in-plugin
 
 ## Imagem
 
-Crie os arquivos de usuário e senha do **registry** que serão utilizados.
+Crie os arquivos de usuário e senha do **registry** que serão utilizados para fazer o `push` da imagem.
 
 ```shell
 echo 'username' > .registry-user
@@ -194,10 +141,6 @@ E para fazer o `push` da imagem de sua aplicação, execute:
 ```shell
 bin/docker/image -e production
 ```
-
-⚠️ **Ressalvas**
-
-Se o parâmetro `-e` não for definido, o padrão é `staging`.
 
 
 ## Deploy
