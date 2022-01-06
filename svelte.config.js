@@ -1,10 +1,10 @@
-import process from 'node:process'
 import autoprefixer from 'autoprefixer'
 import preprocess from 'svelte-preprocess'
+import envs from './resource/env.js'
 
 const {
 	NODE_ENV = 'development',
-} = process.env
+} = envs
 
 const production = NODE_ENV === 'production'
 

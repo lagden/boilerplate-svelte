@@ -6,12 +6,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Boilerplate Svelte</title>
 		<link rel="icon" type="image/png" href="./favicon.png" />
-		<link rel="stylesheet" href="./scripts/bundle.css" />
-		<script
-			type="module"
-			src="./scripts/widget.js?TARGET_JS=boilerplate_svelte_js"
-			id="boilerplate_svelte_js"
-		></script>
+		<script type="module">
+			const link = globalThis.document.createElement('link')
+			link.rel = 'stylesheet'
+			link.type = 'text/css'
+			link.href = `./scripts/main.css?noCache=${Math.random()}`
+			link.media = 'all'
+
+			const script = globalThis.document.createElement('script')
+			script.id = 'boilerplate_svelte_js'
+			script.type = 'module'
+			script.src = `./scripts/main.js?TARGET_JS=boilerplate_svelte_js&noCache=${Math.random()}`
+
+			globalThis.document.head.append(link)
+			globalThis.document.head.append(script)
+		</script>
 	</head>
 	<body></body>
 </html>

@@ -17,55 +17,44 @@
   "author": "Thiago Lagden",
   "license": "MIT",
   "scripts": {
+    "cp": "cp static/* public/.",
+    "rm": "rm -rf public/scripts/*",
     "sprite": "spritetify -d ./src/_assets/svg/ -o ./src/_components/_global/Sprite.svelte -c",
     "eslint": "eslint --config .eslintrc.cjs --ext .js,.svelte --ignore-path .gitignore .",
     "prettier": "prettier -c --plugin-search-dir=. ./src/**/*.{svelte,js}",
     "format": "prettier --write --plugin-search-dir=. ./src/**/*.{svelte,js}",
-    "rollup": "rollup -c",
     "test": "run-s eslint",
-    "build": "run-s test rollup",
+    "esbuild": "./esbuild.config.js",
+    "build": "run-s test rm cp esbuild",
     "prestart": "npm test",
     "start": "vite --cors --port ${PORT} --host ${HOSTNAME_CUSTOM}"
   },
   "dependencies": {
-    "sirv-cli": "1.0.14"
+    "sirv-cli": "2.0.1"
   },
   "devDependencies": {
-    "@babel/core": "7.16.5",
+    "@babel/core": "7.16.7",
     "@babel/eslint-parser": "7.16.5",
-    "@babel/plugin-syntax-top-level-await": "7.14.5",
     "@emotion/css": "11.7.1",
-    "@rollup/plugin-commonjs": "21.0.1",
-    "@rollup/plugin-html": "0.2.4",
-    "@rollup/plugin-node-resolve": "13.1.1",
-    "@sveltejs/vite-plugin-svelte": "1.0.0-next.32",
-    "@tadashi/rollup-plugin-brotli": "1.0.2",
-    "@tadashi/rollup-plugin-widget": "2.0.0",
+    "@sveltejs/vite-plugin-svelte": "1.0.0-next.34",
     "@tadashi/spritetify": "1.0.0",
-    "@tadashi/svelte-icon": "lagden/svelte-icon#1.0.0",
-    "autoprefixer": "10.4.0",
-    "eslint": "8.5.0",
+    "@tadashi/svelte-icon": "lagden/svelte-icon#1.1.0",
+    "autoprefixer": "10.4.1",
+    "esbuild": "0.14.10",
+    "esbuild-svelte": "0.6.0",
+    "eslint": "8.6.0",
     "eslint-config-xo": "0.39.0",
     "eslint-plugin-html": "6.2.0",
-    "eslint-plugin-svelte3": "3.2.1",
-    "eslint-plugin-unicorn": "39.0.0",
+    "eslint-plugin-svelte3": "3.3.0",
+    "eslint-plugin-unicorn": "40.0.0",
     "npm-run-all": "4.1.5",
     "postcss": "8.4.5",
     "prettier": "2.5.1",
     "prettier-plugin-svelte": "2.5.1",
-    "rollup": "2.61.1",
-    "rollup-plugin-css-only": "3.1.0",
-    "rollup-plugin-sri": "1.3.4",
-    "rollup-plugin-svelte": "7.1.0",
-    "rollup-plugin-terser": "7.0.2",
-    "sass": "1.45.1",
+    "sass": "1.46.0",
     "svelte": "3.44.3",
     "svelte-preprocess": "4.10.1",
-    "vite": "2.7.4"
+    "vite": "2.7.10"
   },
-  "babel": {
-    "plugins": [
-      "@babel/plugin-syntax-top-level-await"
-    ]
-  }
+  "babel": {}
 }
