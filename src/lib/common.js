@@ -112,7 +112,7 @@ export function noop() {}
  * @return {boolean} Retorna true ou false
  */
 export function checkArray(data, empty = true) {
-	const isArray = data && Array.isArray(data)
+	const isArray = Array.isArray(data)
 	if (empty) {
 		return isArray
 	}
