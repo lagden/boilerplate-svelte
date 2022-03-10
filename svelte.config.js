@@ -12,6 +12,7 @@ const ignoreWarnings = new Set([
 	'a11y-no-onchange',
 	'a11y-label-has-associated-control',
 	'css-unused-selector',
+	// 'missing-declaration',
 ])
 
 const config = {
@@ -26,13 +27,12 @@ const config = {
 			],
 		},
 	}),
-	extensions: ['.svelte'],
-	onwarn(warning, handler) {
-		// console.log('warning.code', warning.code)
+	filterWarnings(warning) {
+		// console.log('------------------>>>', JSON.stringify(warning, undefined, '  '))
 		if (ignoreWarnings.has(warning.code)) {
-			return
+			return false
 		}
-		handler(warning)
+		return true
 	},
 }
 
