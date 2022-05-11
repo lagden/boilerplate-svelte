@@ -10,6 +10,9 @@ resource
 # Boilerplate
 _cleanup
 
+# Vite
+.vite/*
+
 # node
 node_modules
 

@@ -1,6 +1,5 @@
 <script>
-	import {css} from '../lib/emotion'
-	import {obj2style} from '../lib/common'
+	import {obj2style} from '@tadashi/common'
 
 	import Icon from '@tadashi/svelte-icon'
 	import Head from './_global/Head.svelte'
@@ -10,13 +9,6 @@
 	const style = obj2style({
 		'--tadashi_svelte_icon_width': '300px',
 	})
-
-	// Exemplo via css emotion
-	const icon = css`
-		width: 24px;
-		height: 24px;
-		fill: hsl(0deg 0% 100%);
-	`
 </script>
 
 <Head />
@@ -25,7 +17,7 @@
 <section class="_boilerplate_svelte_wrapper">
 	<Icon name="boilerplate_svelte_logo" {style} />
 	<h1 class="_boilerplate_svelte_wrapper__title">
-		<Icon name="boilerplate_svelte_flask" class={icon} />
+		<Icon name="boilerplate_svelte_flask" />
 		<span>Boilerplate Svelte</span>
 	</h1>
 </section>
@@ -43,6 +35,10 @@
 	}
 
 	._boilerplate_svelte_wrapper__title {
+		--tadashi_svelte_icon_width: 24px;
+		--tadashi_svelte_icon_height: 24px;
+		--tadashi_svelte_icon_fill: hsl(0deg 0% 100%);
+
 		align-items: center;
 		display: inline-grid;
 		grid-auto-columns: auto;

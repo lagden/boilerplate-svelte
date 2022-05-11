@@ -30,6 +30,7 @@ export function getData(t) {
 		for (const [key, value] of Object.entries(el.dataset)) {
 			o[key] = value
 		}
+		o.jsID = id
 	}
 	_data.add(o)
 	return o
