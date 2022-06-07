@@ -45,7 +45,7 @@ Existem algumas dependências.
 **Exemplo:**
 
 ```shell
-yarn dlx degit lagden/boilerplate-svelte#master projeto
+yarn dlx degit lagden/boilerplate-svelte#main projeto
 cd projeto
 yarn dlx degit lagden/boilerplate-bin/files#main bin
 yarn dlx degit lagden/boilerplate-eslint/files/frontend/.eslintrc.cjs#main ./ --force
