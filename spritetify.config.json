@@ -1,6 +1,19 @@
 {
   "id": "boilerplate_svelte_%s",
-  "removeTitle": true,
-  "removeUselessStrokeAndFill": false,
-  "removeAttrs": {}
+  "multipass": true,
+  "plugins": [
+    {
+      "name": "preset-default",
+      "params": {
+        "overrides": {
+          "removeTitle": false,
+          "removeAttrs": {
+            "params": {
+              "attrs": "(stroke)"
+            }
+          }
+        }
+      }
+    }
+  ]
 }

@@ -7,17 +7,22 @@
 	<link rel="preconnect" href="https://unpkg.com" crossorigin>
 	<link rel="stylesheet" href="https://unpkg.com/modern-normalize@1.1.0/modern-normalize.css">
 
-	<style type="text/css">
+	<style>
 		html {
-			background-color: hsl(15deg 100% 50%);
+			background-color: hsl(226deg 25% 10%);
 		}
 
 		body {
 			display: flex;
 			flex-direction: column;
+			align-items: safe center;
+			justify-content: center;
+			gap: 1em;
+
 			min-height: 100vh;
 			font-family: 'Lato', sans-serif;
 			font-size: 1em;
+			color: hsl(0deg 0% 100%);
 		}
 
 		svg {

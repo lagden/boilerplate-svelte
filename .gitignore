@@ -7,11 +7,12 @@ resource
 # Public
 !public/.gitkeep
 
-# Boilerplate
-_cleanup
-
 # Vite
 .vite/*
+
+# Boilerplate
+_cleanup
+_init
 
 # node
 node_modules
