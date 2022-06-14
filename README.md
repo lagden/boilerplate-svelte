@@ -45,12 +45,12 @@ Existem algumas dependências.
 **Exemplo:**
 
 ```shell
-yarn dlx degit lagden/boilerplate-svelte#main projeto
+yarn dlx tiged lagden/boilerplate-svelte#main projeto
 cd projeto
-yarn dlx degit lagden/boilerplate-bin/files#main bin --force
-yarn dlx degit lagden/boilerplate-eslint/files/frontend/.eslintrc.cjs#main ./.eslintrc.cjs --force
-yarn dlx degit lagden/boilerplate-envs/files#main ./ --force
-yarn dlx degit lagden/boilerplate-docker-nodejs/files#main ./ --force
+yarn dlx tiged lagden/boilerplate-bin/files#main bin --force
+yarn dlx tiged lagden/boilerplate-eslint/files/frontend/.eslintrc.cjs#main .eslintrc.cjs --force
+yarn dlx tiged lagden/boilerplate-envs/files#main . --force
+yarn dlx tiged lagden/boilerplate-docker-nodejs/files#main . --force
 ```
 
 ---
