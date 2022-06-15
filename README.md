@@ -28,7 +28,6 @@ Instale o [Yarn](https://yarnpkg.com/getting-started/install).
 
 ```
 npm i --location=global yarn
-yarn set version stable
 ```
 
 ---
