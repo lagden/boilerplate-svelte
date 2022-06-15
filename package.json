@@ -17,16 +17,15 @@
   "author": "Thiago Lagden",
   "license": "MIT",
   "scripts": {
-    "mkdir": "mkdir -p \"public\"",
+    "rm": "rm -rf public/*",
     "cp": "cp -R static/* public/.",
-    "rm": "rm -rf public/scripts/*",
     "sprite": "spritetify -d ./src/_assets/svg/ -o ./src/_components/_global/Sprite.svelte -c",
     "eslint": "eslint --config .eslintrc.cjs --ext .js,.svelte --ignore-path .gitignore .",
     "prettier": "prettier -c --plugin-search-dir=. ./src/**/*.{svelte,js}",
     "format": "prettier --write --plugin-search-dir=. ./src/**/*.{svelte,js}",
     "test": "run-s eslint",
     "esbuild": "node ./esbuild.config.js",
-    "build": "run-s test rm mkdir cp esbuild",
+    "build": "run-s test rm cp esbuild",
     "prestart": "npm test",
     "start": "vite --cors --port ${PORT:-5000} --host ${HOSTNAME_CUSTOM:-0.0.0.0}"
   },
