@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -442,9 +442,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 17.0.42
-  resolution: "@types/node@npm:17.0.42"
-  checksum: a200cd87e4f12d4d5682a893ad6e1140720c6c074a2cd075f254b3b8306d6174f5a3630e5d2347efb5e9b80d420404b5fafc8fe3c7d4c81998cd914c50b19f75
+  version: 17.0.43
+  resolution: "@types/node@npm:17.0.43"
+  checksum: 7fd84b1e37dc406c1c73a1461ccd6a1a38a5a335563788dd25e0aa75476d6948f815d0e9e4c2201f785a36a72269e6aaf0d851ca75c1e44b92e3a9d504e04a1e
   languageName: node
   linkType: hard
 
@@ -649,7 +649,7 @@ __metadata:
     eslint-plugin-unicorn: 42.0.0
     npm-run-all: 4.1.5
     postcss: 8.4.14
-    prettier: 2.6.2
+    prettier: 2.7.0
     prettier-plugin-svelte: 2.7.0
     sass: 1.52.3
     sirv-cli: 2.0.2
@@ -858,9 +858,9 @@ __metadata:
   linkType: hard
 
 "ci-info@npm:^3.3.0":
-  version: 3.3.1
-  resolution: "ci-info@npm:3.3.1"
-  checksum: 244546317cca96955860d2cb8d0bf47dd66d9078bbe83a215fa87464ab24b352c6fc6f56027d1c82f002e3f833be253f1320d35ed7199bd81134f7788c657f3a
+  version: 3.3.2
+  resolution: "ci-info@npm:3.3.2"
+  checksum: fd81f1edd2d3b0f6cb077b2e84365136d87b9db8c055928c1ad69da8a76c2c2f19cba8ea51b90238302157ca927f91f92b653e933f2398dde4867500f08d6e62
   languageName: node
   linkType: hard
 
@@ -1184,9 +1184,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.147":
-  version: 1.4.154
-  resolution: "electron-to-chromium@npm:1.4.154"
-  checksum: e04c6f8eb630a0ae9c62a9d00272fb154b5f5576bcd5f71cc4f8eb288603099a19b1544facd462f11bd3c52418d51b32de6d1c03050c8aadfcec995adc9ef8e6
+  version: 1.4.155
+  resolution: "electron-to-chromium@npm:1.4.155"
+  checksum: 86f1152eb77711cb24cb08a984a986bf51e2d3d02d90209127f3781e4d771918d15a517e9903a78cd5cf40e06692074c13c7c55eb78b528bd69a0875854228b1
   languageName: node
   linkType: hard
 
@@ -3153,12 +3153,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.6.2":
-  version: 2.6.2
-  resolution: "prettier@npm:2.6.2"
+"prettier@npm:2.7.0":
+  version: 2.7.0
+  resolution: "prettier@npm:2.7.0"
   bin:
     prettier: bin-prettier.js
-  checksum: 48d08dde8e9fb1f5bccdd205baa7f192e9fc8bc98f86e1b97d919de804e28c806b0e6cc685e4a88211aa7987fa9668f30baae19580d87ced3ed0f2ec6572106f
+  checksum: 5b55bb1dced9d16635b83229df8e670d150890fdb343f19e8a66e610094a108e960c0f57352b3e5cdbc4eff4ef00a834406047ffcd9f20bd22a6497ba143c81f
   languageName: node
   linkType: hard
 

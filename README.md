@@ -33,7 +33,7 @@ yarn set version stable
 
 ---
 
-Use o [degit](https://github.com/Rich-Harris/degit) para fazer o `scaffolding` do projeto.
+Use o [degit](https://github.com/tiged/tiged) para fazer o `scaffolding` do projeto.
 
 Existem algumas dependências.
 
@@ -45,12 +45,12 @@ Existem algumas dependências.
 **Exemplo:**
 
 ```shell
-yarn dlx tiged lagden/boilerplate-svelte#main projeto
+npx tiged lagden/boilerplate-svelte#main projeto
 cd projeto
-yarn dlx tiged lagden/boilerplate-bin/files#main bin --force
-yarn dlx tiged lagden/boilerplate-eslint/files/frontend/.eslintrc.cjs#main .eslintrc.cjs --force
-yarn dlx tiged lagden/boilerplate-envs/files#main . --force
-yarn dlx tiged lagden/boilerplate-docker-nodejs/files#main . --force
+npx tiged lagden/boilerplate-bin/files#main bin --force
+npx tiged lagden/boilerplate-eslint/files/frontend/.eslintrc.cjs#main .eslintrc.cjs --force
+npx tiged lagden/boilerplate-envs/files#main . --force
+npx tiged lagden/boilerplate-docker-nodejs/files#main . --force
 ```
 
 ---
