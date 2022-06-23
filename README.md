@@ -47,7 +47,7 @@ Existem algumas dependências.
 npx tiged lagden/boilerplate-svelte#main projeto
 cd projeto
 npx tiged lagden/boilerplate-bin/files#main bin --force
-npx tiged lagden/boilerplate-eslint/files/frontend/.eslintrc.cjs#main .eslintrc.cjs --force
+npx tiged lagden/boilerplate-eslint/files/frontend#main . --force
 npx tiged lagden/boilerplate-envs/files#main . --force
 npx tiged lagden/boilerplate-docker-nodejs/files#main . --force
 ```
@@ -59,7 +59,12 @@ npx tiged lagden/boilerplate-docker-nodejs/files#main . --force
 No arquivo `.env-base`, faça alguns ajustes:
 
 - altere a variável de ambiente `REQUIRE_GEN` para `1`.
-- ajuste o `WATCH_CMD` para `"find src static -type f | entr -nr ${START_CMD}"`
+
+Se estiver utilizando o **Windows**, altere o `START_CMD` para:
+
+```
+START_CMD="npx vite --cors --port ${PORT:-5000} --host ${HOSTNAME_CUSTOM:-0.0.0.0}"
+```
 
 
 ## Como utilizar

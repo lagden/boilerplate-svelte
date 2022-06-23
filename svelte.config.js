@@ -1,4 +1,3 @@
-import autoprefixer from 'autoprefixer'
 import preprocess from 'svelte-preprocess'
 import envs from './resource/env.js'
 
@@ -21,11 +20,7 @@ const config = {
 	},
 	preprocess: preprocess({
 		sourceMap: !production,
-		postcss: {
-			plugins: [
-				autoprefixer(),
-			],
-		},
+		postcss: true,
 	}),
 	filterWarnings(warning) {
 		// console.log('------------------>>>', JSON.stringify(warning, undefined, '  '))

@@ -1,5 +1,7 @@
 import {getTarget, getEnv} from './lib/env.js'
 
+import './_assets/css/app.css'
+
 import App from './_components/App.svelte'
 
 const TARGET_JS = new URL(import.meta.url).searchParams.get('TARGET_JS')
