@@ -6,8 +6,8 @@
 	<!-- Normalize -->
 	<!-- <link rel="preconnect" href="https://unpkg.com" crossorigin> -->
 	<!-- <link rel="stylesheet" href="https://unpkg.com/modern-normalize@1.1.0/modern-normalize.css"> -->
-
-	<style lang="scss">
-		@import '../../_assets/sass/global';
-	</style>
 </svelte:head>
+
+<style global>
+	@import "../../_assets/css/tailwind.css";
+</style>

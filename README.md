@@ -27,7 +27,7 @@ Boilerplate para desenvolvimento de uma aplicação utilizando Svelte.
 Instale o [Yarn](https://yarnpkg.com/getting-started/install).
 
 ```
-npm i --location=global yarn
+npm i -g yarn
 ```
 
 ---

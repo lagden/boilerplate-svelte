@@ -4,18 +4,21 @@
 	import Sprite from './_global/Sprite.svelte'
 
 	const link = 'https://twitter.com/share?text=Svelte Boilerplate made with ❤️&url=https://github.com/lagden/boilerplate-svelte&hashtags=sveltejs,js,boilerplate'
-	const clamp_logo = 'clamp(10rem,_2rem_+_40vw,_25rem)'
-	const clamp_flask = 'clamp(1rem,_-0.875rem_+_8.333vw,_3.5rem)'
+	const content = 'Boilerplate Svelte with Tailwind'
 </script>
 
 <Head />
 <Sprite />
 
-<Icon name="boilerplate_svelte_logo" class="w-[{clamp_logo}] h-[{clamp_logo}]" />
+<div class="inline-flex items-center-safe gap-4">
+	<Icon name="boilerplate_svelte_logo" class="clamp_logo" />
+	<span class="text-slate-50 text-2xl">+</span>
+	<Icon name="boilerplate_svelte_tail" class="clamp_logo fill-sky-400" />
+</div>
 
 <h1 class="inline-flex items-center-safe gap-4 text-slate-50">
-	<Icon name="boilerplate_svelte_flask" class="w-[{clamp_flask}] h-[{clamp_flask}] fill-svelte hover:fill-slate-50" />
-	<span class="text-[clamp(1rem,_-0.875rem_+_8.333vw,_3.5rem)]">Boilerplate Svelte</span>
+	<Icon name="boilerplate_svelte_flask" class="clamp_flask fill-svelte hover:fill-slate-50" />
+	<span class="text-[clamp(1rem,_0.2500rem_+_3.3333vw,_2rem)]">{content}</span>
 </h1>
 
 <div class="relative rounded-xl overflow-auto p-8">

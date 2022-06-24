@@ -1,3 +1,6 @@
+import autoprefixer from 'autoprefixer'
+import postcssImport from 'postcss-import'
+import tailwindcss from 'tailwindcss'
 import preprocess from 'svelte-preprocess'
 import envs from './resource/env.js'
 
@@ -20,7 +23,13 @@ const config = {
 	},
 	preprocess: preprocess({
 		sourceMap: !production,
-		postcss: true,
+		postcss: {
+			plugins: [
+				postcssImport(),
+				tailwindcss(),
+				autoprefixer(),
+			],
+		},
 	}),
 	filterWarnings(warning) {
 		// console.log('------------------>>>', JSON.stringify(warning, undefined, '  '))
