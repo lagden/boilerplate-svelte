@@ -25,7 +25,7 @@
 	<div class="grid place-items-center">
 		<a href="{link}" target= "_blank" rel="noreferrer noopener" class="bg-blue-500 hover:bg-blue-800 text-white inline-flex pl-3.5 pr-4 py-3 font-medium rounded-md items-center text-sm space-x-3">
 			<Icon name="boilerplate_svelte_bird" class="w-[20px] h-[20px] fill-current" />
-			<span>Share on Twitter....</span>
+			<span>Share on Twitter</span>
 		</a>
 	</div>
 </div>
