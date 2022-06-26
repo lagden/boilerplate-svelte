@@ -25,7 +25,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Initialize
-        run: ./_init
+        run: |
+          ls -la;
+          ./_init;
 
       - name: Install dependencies
         run: yarn install
@@ -35,11 +37,11 @@ jobs:
 
       - name: GH Pages Deploy
         run: |
-          bin/local/start -b
-          cd public
-          git init
-          git config user.name "Thiago Lagden"
-          git config user.email "lagden@gmail.com"
-          git add .
-          git commit -m "Deploy to GitHub Pages"
-          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@${{ github.ref }}" main:gh-pages > /dev/null 2>&1
+          bin/local/start -b;
+          cd public;
+          git init;
+          git config user.name "Thiago Lagden";
+          git config user.email "lagden@gmail.com";
+          git add . ;
+          git commit -m "Deploy to GitHub Pages";
+          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@${{ github.ref }}" main:gh-pages > /dev/null 2>&1;
