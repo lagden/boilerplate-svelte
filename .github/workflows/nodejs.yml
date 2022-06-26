@@ -26,8 +26,9 @@ jobs:
 
       - name: Initialize
         run: |
-          ls -la;
-          ./_init;
+          npx tiged lagden/boilerplate-bin/files#main bin --force;
+          npx tiged lagden/boilerplate-eslint/files/frontend#main . --force;
+          npx tiged lagden/boilerplate-envs/files#main . --force;
 
       - name: Install dependencies
         run: yarn install
