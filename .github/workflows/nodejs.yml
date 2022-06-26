@@ -40,10 +40,10 @@ jobs:
         run: |
           bin/local/start -b;
           cd public;
+          git init;
           git config user.name "Thiago Lagden";
           git config user.email "lagden@gmail.com";
           git config --global init.defaultBranch main
-          git init;
           git branch -m main
           git add . ;
           git commit -m "Deploy to GitHub Pages";
