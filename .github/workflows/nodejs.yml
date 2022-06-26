@@ -1,0 +1,45 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Initialize
+        run: ./_init
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run build
+        run: bin/local/start -b
+
+      - name: GH Pages Deploy
+        run: |
+          bin/local/start -b
+          cd public
+          git init
+          git config user.name "Thiago Lagden"
+          git config user.email "lagden@gmail.com"
+          git add .
+          git commit -m "Deploy to GitHub Pages"
+          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@${{ github.ref }}" main:gh-pages > /dev/null 2>&1
