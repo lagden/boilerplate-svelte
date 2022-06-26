@@ -36,17 +36,22 @@ jobs:
       - name: Run build
         run: bin/local/start -b
 
-      - name: GH Pages Deploy
-        run: |
-          cd public;
-          git config --global init.defaultBranch main
-          git init;
-          git config user.name "Thiago Lagden";
-          git config user.email "lagden@gmail.com";
-          git add . ;
-          git commit -m "Deploy to GitHub Pages";
-          git branch -M main
-          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@${{ github.ref }}" main:gh-pages > /dev/null 2>&1;
+      # - name: GH Pages Deploy
+      #   run: |
+      #     cd public;
+      #     git config --global init.defaultBranch main
+      #     git config user.name "Thiago Lagden";
+      #     git config user.email "lagden@gmail.com";
+      #     git init;
+      #     git add . ;
+      #     git commit -m "Deploy to GitHub Pages";
+      #     git branch -M main
+      #     git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@${{ github.ref }}" main:gh-pages > /dev/null 2>&1;
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: public
 
       # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
