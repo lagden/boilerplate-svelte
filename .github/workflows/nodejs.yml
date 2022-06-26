@@ -43,9 +43,9 @@ jobs:
           git init;
           git config user.name "Thiago Lagden";
           git config user.email "lagden@gmail.com";
-          git branch -m main
           git add . ;
           git commit -m "Deploy to GitHub Pages";
+          git branch -M main
           git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@${{ github.ref }}" main:gh-pages > /dev/null 2>&1;
 
       # - name: Deploy
