@@ -3,7 +3,8 @@
 	import Head from './_global/Head.svelte'
 	import Sprite from './_global/Sprite.svelte'
 
-	const link = 'https://twitter.com/share?text=Svelte Boilerplate made with ❤️&url=https://github.com/lagden/boilerplate-svelte&hashtags=sveltejs,js,boilerplate'
+	// prettier-ignore
+	const link = 'https://twitter.com/share?text=Boilerplate%20Svelte%20%2B%20Tailwind%20made%20with%20%E2%9D%A4%EF%B8%8F.&url=https://lagden.github.io/boilerplate-svelte/&hashtags=sveltejs,js,boilerplate,tailwind'
 	const content = 'Boilerplate Svelte with Tailwind'
 </script>
 
@@ -22,10 +23,24 @@
 </h1>
 
 <div class="relative rounded-xl overflow-auto p-8">
-	<div class="grid place-items-center">
-		<a href="{link}" target= "_blank" rel="noreferrer noopener" class="bg-blue-500 hover:bg-blue-800 text-white inline-flex pl-3.5 pr-4 py-3 font-medium rounded-md items-center text-sm space-x-3">
+	<div class="inline-flex items-center-safe gap-4">
+		<a
+			href={link}
+			target="_blank"
+			rel="noreferrer noopener"
+			class="bg-blue-500 hover:bg-blue-800 text-white inline-flex pl-3.5 pr-4 py-3 font-medium rounded-md items-center text-sm space-x-3"
+		>
 			<Icon name="boilerplate_svelte_bird" class="w-[20px] h-[20px] fill-current" />
 			<span>Share on Twitter</span>
+		</a>
+		<a
+			href="https://github.com/lagden/boilerplate-svelte"
+			target="_blank"
+			rel="noreferrer noopener"
+			class="bg-[black] hover:bg-neutral-900 text-white inline-flex pl-3.5 pr-4 py-3 font-medium rounded-md items-center text-sm space-x-3"
+		>
+			<Icon name="boilerplate_svelte_github" class="w-[20px] h-[20px] fill-current" />
+			<span>Github Repository</span>
 		</a>
 	</div>
 </div>

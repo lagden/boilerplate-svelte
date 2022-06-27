@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 
-const plugin = require('tailwindcss/plugin')
+import plugin from 'tailwindcss/plugin.js'
 
-module.exports = {
+export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
@@ -12,7 +12,7 @@ module.exports = {
 		},
 	},
 	plugins: [
-		// require('@tailwindcss/forms'),
+		// // require('@tailwindcss/forms'),
 		plugin(({addUtilities}) => {
 			addUtilities({
 				'.items-center-safe': {'align-items': 'safe center'},

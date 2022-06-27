@@ -9,18 +9,19 @@ const ignoreWarnings = new Set([
 ])
 
 module.exports = {
+	root: true,
 	env: {
 		es2022: true,
 		node: true,
 		browser: true,
 	},
-	parser: '@babel/eslint-parser',
+	// parser: '@babel/eslint-parser',
 	parserOptions: {
 		ecmaVersion: 13,
 		sourceType: 'module',
 	},
-	plugins: ['html', 'svelte3'],
-	extends: ['xo', 'plugin:unicorn/recommended'],
+	extends: ['prettier', 'xo', 'plugin:unicorn/recommended'],
+	plugins: ['svelte3'],
 	overrides: [
 		{
 			files: ['**/*.svelte'],

@@ -1,16 +1,15 @@
 import {defineConfig} from 'vite'
 import {svelte} from '@sveltejs/vite-plugin-svelte'
-import config from './svelte.config.js'
+import postcss from './postcss.config.js'
+import config, {ignoreWarnings as _ignoreWarnings} from './svelte.config.js'
 
 const {
 	compilerOptions,
-	preprocess,
+	// preprocess,
 } = config
 
 const ignoreWarnings = new Set([
-	'a11y-no-onchange',
-	'a11y-label-has-associated-control',
-	'css-unused-selector',
+	..._ignoreWarnings,
 	'vite-plugin-svelte-css-no-scopable-elements',
 	// 'missing-declaration',
 ])
@@ -24,8 +23,8 @@ export default defineConfig({
 		svelte({
 			configFile: false,
 			compilerOptions,
-			preprocess,
-			emitCss: true,
+			// preprocess,
+			// emitCss: true,
 			onwarn(warning, defaultHandler) {
 				// console.log('>>>>>>', warning.code)
 				if (ignoreWarnings.has(warning.code)) {
@@ -38,4 +37,7 @@ export default defineConfig({
 			},
 		}),
 	],
+	css: {
+		postcss,
+	},
 })

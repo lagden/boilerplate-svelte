@@ -1,7 +1,5 @@
-import autoprefixer from 'autoprefixer'
-import postcssImport from 'postcss-import'
-import tailwindcss from 'tailwindcss'
 import preprocess from 'svelte-preprocess'
+import postcss from './postcss.config.js'
 import envs from './resource/env.js'
 
 const {
@@ -10,26 +8,20 @@ const {
 
 const production = NODE_ENV === 'production'
 
-const ignoreWarnings = new Set([
+export const ignoreWarnings = new Set([
 	'a11y-no-onchange',
 	'a11y-label-has-associated-control',
 	'css-unused-selector',
 	// 'missing-declaration',
 ])
 
-const config = {
+export default {
 	compilerOptions: {
 		dev: !production,
 	},
 	preprocess: preprocess({
 		sourceMap: !production,
-		postcss: {
-			plugins: [
-				postcssImport(),
-				tailwindcss(),
-				autoprefixer(),
-			],
-		},
+		postcss,
 	}),
 	filterWarnings(warning) {
 		// console.log('------------------>>>', JSON.stringify(warning, undefined, '  '))
@@ -39,5 +31,3 @@ const config = {
 		return true
 	},
 }
-
-export default config
