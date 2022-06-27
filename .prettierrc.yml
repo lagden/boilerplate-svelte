@@ -4,13 +4,13 @@ bracketSpacing: false
 # htmlWhitespaceSensitivity: css
 insertPragma: false
 # parser: babel
-printWidth: 120
+printWidth: 1200
 proseWrap: preserve
 quoteProps: as-needed
 requirePragma: false
 semi: false
 singleQuote: true
-# tabWidth: 2
+tabWidth: 2
 trailingComma: all
 useTabs: true
 plugins:

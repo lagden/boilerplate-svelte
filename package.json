@@ -23,13 +23,14 @@
     "eslint": "eslint --config .eslintrc.cjs --ext .js,.svelte --ignore-path .gitignore .",
     "prettier": "prettier -c --plugin-search-dir=. ./src/**/*.{svelte,js}",
     "format": "prettier --write --plugin-search-dir=. ./src/**/*.{svelte,js}",
-    "test": "run-s prettier eslint",
+    "test": "run-s eslint",
     "esbuild": "node ./esbuild.config.js",
     "build": "run-s test rm cp esbuild",
     "prestart": "npm test",
     "start": "vite --cors --port ${PORT:-5000} --host ${HOSTNAME_CUSTOM:-0.0.0.0}"
   },
   "dependencies": {
+    "esbuild-style-plugin": "1.6.0",
     "sirv-cli": "2.0.2"
   },
   "devDependencies": {

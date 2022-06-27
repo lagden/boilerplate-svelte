@@ -2,7 +2,9 @@
 
 import esbuild from 'esbuild'
 import esbuildSvelte from 'esbuild-svelte'
+import postcssPlugin from 'esbuild-style-plugin'
 import config from './svelte.config.js'
+import postcss from './postcss.config.js'
 
 console.time('build')
 
@@ -18,6 +20,7 @@ try {
 		target: ['es2022'],
 		plugins: [
 			esbuildSvelte(config),
+			postcssPlugin({postcss}),
 		],
 	})
 	console.log(result)

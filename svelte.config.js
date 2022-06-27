@@ -1,4 +1,4 @@
-import preprocess from 'svelte-preprocess'
+import sveltePreprocess from 'svelte-preprocess'
 import postcss from './postcss.config.js'
 import envs from './resource/env.js'
 
@@ -18,8 +18,9 @@ export const ignoreWarnings = new Set([
 export default {
 	compilerOptions: {
 		dev: !production,
+		// css: true,
 	},
-	preprocess: preprocess({
+	preprocess: sveltePreprocess({
 		sourceMap: !production,
 		postcss,
 	}),
