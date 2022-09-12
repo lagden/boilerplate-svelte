@@ -24,19 +24,19 @@
 
 <div class="relative rounded-xl overflow-auto p-8">
 	<div class="inline-flex items-center-safe gap-4">
-		<a href={link} target="_blank" rel="noreferrer noopener" class="link bg-blue-500 hover:bg-blue-800">
+		<a href={link} target="_blank" rel="noreferrer noopener" class="_link text-white bg-blue-500 hover:bg-blue-800">
 			<Icon name="boilerplate_svelte_bird" class="w-[20px] h-[20px] fill-current" />
 			<span>Share on Twitter</span>
 		</a>
-		<a href="https://github.com/lagden/boilerplate-svelte" target="_blank" rel="noreferrer noopener" class="link bg-[black] hover:bg-neutral-900">
+		<a href="https://github.com/lagden/boilerplate-svelte" target="_blank" rel="noreferrer noopener" class="_link bg-white text-neutral-900 hover:bg-neutral-900 hover:text-white">
 			<Icon name="boilerplate_svelte_github" class="w-[20px] h-[20px] fill-current" />
 			<span>Github Repository</span>
 		</a>
 	</div>
 </div>
 
-<style>
-	.link {
-		@apply text-white inline-flex pl-3.5 pr-4 py-3 font-medium rounded-md items-center text-sm space-x-3;
+<style lang="postcss">
+	._link {
+		@apply flex gap-4 pl-3.5 pr-4 py-3 font-medium rounded-md items-center text-sm;
 	}
 </style>

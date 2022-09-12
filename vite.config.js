@@ -5,7 +5,7 @@ import config, {ignoreWarnings as _ignoreWarnings} from './svelte.config.js'
 
 const {
 	compilerOptions,
-	// preprocess,
+	preprocess,
 } = config
 
 const ignoreWarnings = new Set([
@@ -19,11 +19,14 @@ export default defineConfig({
 	server: {
 		hmr: true,
 	},
+	css: {
+		postcss,
+	},
 	plugins: [
 		svelte({
 			configFile: false,
 			compilerOptions,
-			// preprocess,
+			preprocess,
 			// emitCss: true,
 			onwarn(warning, defaultHandler) {
 				// console.log('>>>>>>', warning.code)
@@ -37,7 +40,4 @@ export default defineConfig({
 			},
 		}),
 	],
-	css: {
-		postcss,
-	},
 })

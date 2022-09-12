@@ -1,5 +1,3 @@
-/*eslint unicorn/prefer-module: 0*/
-
 'use strict'
 
 const ignoreWarnings = new Set([
@@ -9,7 +7,6 @@ const ignoreWarnings = new Set([
 ])
 
 module.exports = {
-	root: true,
 	env: {
 		es2022: true,
 		node: true,
@@ -20,8 +17,8 @@ module.exports = {
 		ecmaVersion: 13,
 		sourceType: 'module',
 	},
-	extends: ['prettier', 'xo', 'plugin:unicorn/recommended'],
 	plugins: ['svelte3'],
+	extends: ['xo', 'plugin:unicorn/recommended'],
 	overrides: [
 		{
 			files: ['**/*.svelte'],
@@ -56,6 +53,7 @@ module.exports = {
 		'spaced-comment': 0,
 		'padding-line-between-statements': 0,
 		'no-undef-init': 0,
+		'no-new-func': 0,
 		'unicorn/filename-case': 0,
 		'unicorn/prevent-abbreviations': 0,
 		'unicorn/no-reduce': 0,
@@ -64,6 +62,8 @@ module.exports = {
 		'unicorn/no-useless-undefined': 0,
 		'unicorn/no-zero-fractions': 0,
 		'unicorn/prefer-query-selector': 0,
+		'unicorn/prefer-dom-node-dataset': 0,
+		'unicorn/consistent-destructuring': 0,
 		// 'unicorn/prefer-object-from-entries': 0,
 		// 'unicorn/no-null': 0,
 		'unicorn/import-style': [

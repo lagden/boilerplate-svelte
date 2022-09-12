@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 
-import plugin from 'tailwindcss/plugin.js'
+const plugin = require('tailwindcss/plugin.js')
 
-export default {
+module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	// prefix: 'tw-',
 	theme: {

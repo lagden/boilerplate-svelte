@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @layer base, components, utilities, app; */
+
 @layer base {
 	body {
 		@apply bg-slate-800 h-screen flex flex-col gap-4 items-center-safe justify-center-safe;
@@ -9,12 +11,14 @@
 	}
 }
 
-.clamp_logo {
-	--clamp: clamp(5rem, 1.2500rem + 16.6667vw, 10rem);
-	@apply w-[var(--clamp)] h-[var(--clamp)];
-}
+@layer app {
+	.clamp_logo {
+		--clamp: clamp(5rem, 1.2500rem + 16.6667vw, 10rem);
+		@apply w-[var(--clamp)] h-[var(--clamp)];
+	}
 
-.clamp_flask {
-	--clamp: clamp(1rem, 0.2500rem + 3.3333vw, 2rem);
-	@apply w-[var(--clamp)] h-[var(--clamp)];
+	.clamp_flask {
+		--clamp: clamp(1rem, 0.2500rem + 3.3333vw, 2rem);
+		@apply w-[var(--clamp)] h-[var(--clamp)];
+	}
 }
