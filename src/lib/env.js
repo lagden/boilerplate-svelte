@@ -1,7 +1,6 @@
 import envs from '../../resource/env.js'
 
 // Cache das informações armazenadas no dataset
-// const _data = new Map()
 const _data = new Set()
 
 /**
@@ -13,16 +12,15 @@ export function getEnv() {
 }
 
 /**
- * Retorna todos os dados definidos no data-* do elemento <script>
+ * Retorna todos os dados definidos no data-* do elemento
+ * @param {string} id - ID do elemento
  * @return {object} Retorna um objeto
  */
-export function getData(t) {
+export function getData(id) {
+	// Retorna o cache
 	if (_data.size === 1) {
 		return [..._data][0]
 	}
-
-	const {TARGET_JS} = getEnv()
-	const id = t ?? TARGET_JS
 
 	const el = globalThis.document.getElementById(id)
 	const o = {}
@@ -30,17 +28,19 @@ export function getData(t) {
 		for (const [key, value] of Object.entries(el.dataset)) {
 			o[key] = value
 		}
-		o.jsID = id
+		o.elementID = id
+		_data.add(o)
 	}
-	_data.add(o)
+
 	return o
 }
 
 /**
  * Define onde aplicação será renderizada
+ * @param {string} id - ID do elemento
  * @return {HTMLElement} Retorna o elemento
  */
-export function getTarget(t) {
-	const data = getData(t)
+export function getRender(id) {
+	const data = getData(id)
 	return globalThis.document.getElementById(data.target) ?? globalThis.document.body
 }

@@ -6,12 +6,6 @@
       "name": "removeTitle"
     },
     {
-      "name": "removeAttrs",
-      "params": {
-        "attrs": "(fill|stroke)"
-      }
-    },
-    {
       "name": "sortAttrs",
       "params": {
         "xmlnsOrder": "alphabetical"

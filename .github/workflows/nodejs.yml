@@ -1,28 +1,30 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [main]
-
-  pull_request:
-    branches: [main]
+  - push
+  - pull_request
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
       - name: Initialize
         run: |
@@ -31,12 +33,12 @@ jobs:
           npx tiged lagden/boilerplate-envs/files#main . --force;
 
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
 
       - name: Run build
-        run: bin/local/start -b
+        run: bin/local/start -b -e production
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: public
+          folder: dist

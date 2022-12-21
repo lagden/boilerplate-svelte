@@ -1,16 +1,12 @@
-.vite
+#files
 .registry-*
 .env-local
 docker-compose-*.yml
-public/*
+
+#folders
+.vite
+dist
 resource
-
-# Public
-!public/.gitkeep
-
-# Boilerplate
-_cleanup
-_init
 
 # node
 node_modules
@@ -18,8 +14,6 @@ node_modules
 # Yarn
 .pnp.*
 .yarn/*
-!.yarnrc.yml
-# !.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
@@ -38,7 +32,15 @@ pids
 *.pid.lock
 
 # Coverage
-lib-cov
-coverage
-*.lcov
 .nyc_output
+coverage
+lib-cov
+*.lcov
+
+# Others
+.idea
+.DS_Store
+
+# Boilerplate
+_cleanup
+_init

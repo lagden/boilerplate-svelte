@@ -1,42 +1,73 @@
 <script>
-	import Icon from '@tadashi/svelte-icon'
+	import {spring} from 'svelte/motion'
+	import {pannable} from '../lib/pannable.js'
+
+	import Icon from './_global/Icon.svelte'
 	import Head from './_global/Head.svelte'
 	import Sprite from './_global/Sprite.svelte'
 
-	// prettier-ignore
-	const link = 'https://twitter.com/share?text=Boilerplate%20Svelte%20%2B%20Tailwind%20made%20with%20%E2%9D%A4%EF%B8%8F.&url=https://lagden.github.io/boilerplate-svelte/&hashtags=sveltejs,js,boilerplate,tailwind'
-	const content = 'Boilerplate Svelte with Tailwind'
+	const coords = spring(
+		{
+			x: 0,
+			y: 0,
+		}, {
+			stiffness: 0.2,
+			damping: 0.4,
+		},
+	)
+
+	function handlePanStart() {
+		coords.stiffness = coords.damping = 1
+	}
+
+	function handlePanMove(event) {
+		coords.update($coords => ({
+			x: $coords.x + event.detail.dx,
+			y: $coords.y + event.detail.dy,
+		}))
+	}
+
+	function handlePanEnd() {
+		coords.stiffness = 0.2
+		coords.damping = 0.4
+		coords.set({x: 0, y: 0})
+	}
 </script>
 
 <Head />
 <Sprite />
 
-<div class="inline-flex items-center-safe gap-4">
-	<Icon name="boilerplate_svelte_logo" class="clamp_logo" />
-	<span class="text-slate-50 text-2xl">+</span>
-	<Icon name="boilerplate_svelte_tail" class="clamp_logo fill-sky-400" />
+<div class="box"
+	use:pannable
+	on:panstart={handlePanStart}
+	on:panmove={handlePanMove}
+	on:panend={handlePanEnd}
+	style="transform:
+		translate({$coords.x}px,{$coords.y}px)
+		rotate({$coords.x * 0.2}deg)"
+>
+	<Icon name="boilerplate_svelte_logo" class="clamp_logo drop-shadow-2xl" />
 </div>
 
-<h1 class="inline-flex items-center-safe gap-4 text-slate-50">
-	<Icon name="boilerplate_svelte_flask" class="clamp_flask fill-svelte hover:fill-slate-50" />
-	<span class="text-[clamp(1rem,_0.2500rem_+_3.3333vw,_2rem)]">{content}</span>
-</h1>
+<style>
+	.box {
+		position: absolute;
+		margin: auto;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background-color: hsl(20deg 60% 60%/0.1);
+		cursor: move;
+	}
 
-<div class="relative rounded-xl overflow-auto p-8">
-	<div class="inline-flex items-center-safe gap-4">
-		<a href={link} target="_blank" rel="noreferrer noopener" class="_link text-white bg-blue-500 hover:bg-blue-800">
-			<Icon name="boilerplate_svelte_bird" class="w-[20px] h-[20px] fill-current" />
-			<span>Share on Twitter</span>
-		</a>
-		<a href="https://github.com/lagden/boilerplate-svelte" target="_blank" rel="noreferrer noopener" class="_link bg-white text-neutral-900 hover:bg-neutral-900 hover:text-white">
-			<Icon name="boilerplate_svelte_github" class="w-[20px] h-[20px] fill-current" />
-			<span>Github Repository</span>
-		</a>
-	</div>
-</div>
-
-<style lang="postcss">
-	._link {
-		@apply flex gap-4 pl-3.5 pr-4 py-3 font-medium rounded-md items-center text-sm;
+	:global(.clamp_logo) {
+		position: absolute;
+		margin: auto;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		overflow: auto;
 	}
 </style>

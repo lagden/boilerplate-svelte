@@ -10,11 +10,8 @@ Boilerplate para desenvolvimento de uma aplicação utilizando Svelte.
 
 - [Instalação](#instalação)
 - [Como utilizar](#como-utilizar)
-    - [watch](#watch)
-        - [entr](#entr)
-        - [nodemon](#nodemon)
-    - [teste](#teste)
-    - [sprites](#sprites)
+    - [Teste](#teste)
+    - [Sprites](#sprites)
 - [Imagem (docker)](#imagem-docker)
 - [Deploy (docker)](#deploy-docker)
 - [License](#license)
@@ -22,22 +19,13 @@ Boilerplate para desenvolvimento de uma aplicação utilizando Svelte.
 
 ## Instalação
 
-⚠️ **Importante**
-
-Instale o [Yarn](https://yarnpkg.com/getting-started/install).
-
-```
-npm i -g yarn
-```
-
----
-
-Use o [degit](https://github.com/tiged/tiged) para fazer o `scaffolding` do projeto.
+Use o [tiged](https://github.com/tiged/tiged) para fazer o `scaffolding` do projeto.
 
 Existem algumas dependências.
 
 - [bin](https://github.com/lagden/boilerplate-bin)
 - [envs](https://github.com/lagden/boilerplate-envs)
+- [eslint](https://github.com/lagden/boilerplate-eslint)
 - [docker](https://github.com/lagden/boilerplate-docker-nodejs) (opcional)
 
 
@@ -47,8 +35,8 @@ Existem algumas dependências.
 npx tiged lagden/boilerplate-svelte#main projeto
 cd projeto
 npx tiged lagden/boilerplate-bin/files#main bin --force
-npx tiged lagden/boilerplate-eslint/files/frontend#main . --force
 npx tiged lagden/boilerplate-envs/files#main . --force
+npx tiged lagden/boilerplate-eslint/files/frontend#main . --force
 npx tiged lagden/boilerplate-docker-nodejs/files#main . --force
 ```
 
@@ -58,13 +46,8 @@ npx tiged lagden/boilerplate-docker-nodejs/files#main . --force
 
 No arquivo `.env-base`, faça alguns ajustes:
 
-- altere a variável de ambiente `REQUIRE_GEN` para `1`.
-
-Se estiver utilizando o **Windows**, altere o `START_CMD` para:
-
-```
-START_CMD="npx vite --cors --port ${PORT:-5000} --host ${HOSTNAME_CUSTOM:-0.0.0.0}"
-```
+- Altere a variável de ambiente `REQUIRE_GEN` para `1`.
+- Se estiver utilizando Docker: `DOCKER_TARGET_BUILD=main_frontend`
 
 
 ## Como utilizar
@@ -72,7 +55,7 @@ START_CMD="npx vite --cors --port ${PORT:-5000} --host ${HOSTNAME_CUSTOM:-0.0.0.
 Após finalizado o `scaffolding` do projeto, instale os pacotes.
 
 ```shell
-bin/node/zera -y
+bin/node/zera -m npm
 ```
 
 Feito isso, o projeto está pronto para funcionar.
@@ -91,7 +74,7 @@ bin/docker/start
 
 ⚠️ **Ressalvas**
 
-No **docker**, caso seja instalado um novo pacote, é necessário fazer o `build` da imagem novamente.  
+Via **Docker**, caso seja instalado um novo pacote, é necessário fazer o `build` da imagem novamente.  
 Pare o container (`bin/docker/stop` ou `control + c`) e rode novamente passando o parâmetro `-b`:
 
 ```shell
@@ -99,21 +82,12 @@ bin/docker/start -b
 ```
 
 
-### watch
-
-Tudo controlado pelo `vite`.
-
-```shell
-npm start
-```
-
-
-### teste
+### Teste
 
 🚧 WIP
 
 
-### sprites
+### Sprites
 
 No projeto tem o arquivo `src/_components/_global/Sprite.svelte`.  
 Ele é gerado automaticamente pelo `spritetify`

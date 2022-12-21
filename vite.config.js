@@ -1,43 +1,37 @@
 import {defineConfig} from 'vite'
 import {svelte} from '@sveltejs/vite-plugin-svelte'
-import postcss from './postcss.config.js'
-import config, {ignoreWarnings as _ignoreWarnings} from './svelte.config.js'
-
-const {
-	compilerOptions,
-	preprocess,
-} = config
-
-const ignoreWarnings = new Set([
-	..._ignoreWarnings,
-	'vite-plugin-svelte-css-no-scopable-elements',
-	// 'missing-declaration',
-])
 
 export default defineConfig({
-	cacheDir: './.vite',
+	base: './',
+	cacheDir: '.vite',
 	server: {
 		hmr: true,
 	},
-	css: {
-		postcss,
+	publicDir: 'src/_static',
+	build: {
+		target: 'es2022',
+		modulePreload: false,
+		outDir: 'dist',
+		emptyOutDir: true,
+		assetsDir: 'assets',
+		manifest: 'files.json',
+		sourcemap: true,
+		minify: 'esbuild',
+		// minify: false,
+		rollupOptions: {
+			output: {
+				format: 'es',
+				compact: true,
+				entryFileNames: 'assets/main.js',
+				chunkFileNames: 'assets/bundle_[hash].js',
+				assetFileNames: 'assets/bundle_[hash].[ext]',
+			},
+		},
 	},
 	plugins: [
 		svelte({
-			configFile: false,
-			compilerOptions,
-			preprocess,
-			// emitCss: true,
-			onwarn(warning, defaultHandler) {
-				// console.log('>>>>>>', warning.code)
-				if (ignoreWarnings.has(warning.code)) {
-					return
-				}
-				defaultHandler(warning)
-			},
-			experimental: {
-				prebundleSvelteLibraries: true,
-			},
+			configFile: 'svelte.config.js',
+			prebundleSvelteLibraries: true,
 		}),
 	],
 })
