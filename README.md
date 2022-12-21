@@ -46,7 +46,7 @@ npx tiged lagden/boilerplate-docker-nodejs/files#main . --force
 
 No arquivo `.env-base`, faça alguns ajustes:
 
-- Altere a variável de ambiente `REQUIRE_GEN` para `1`.
+- Altere a variável de ambiente `REQUIRE_GEN` para `1`, se não estiver!
 - Se estiver utilizando Docker: `DOCKER_TARGET_BUILD=main_frontend`
 
 
