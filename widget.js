@@ -1,48 +1,60 @@
-import {uuid} from 'https://unpkg.com/@tadashi/common@1.1.0/src/common.js'
+import {getURL} from 'https://unpkg.com/@tadashi/common@2.1.0/src/lib/url/get-url.js'
+import {getProp} from 'https://unpkg.com/@tadashi/common@2.1.0/src/lib/dom/prop.js'
+import {uuid} from 'https://unpkg.com/@tadashi/common@2.1.0/src/lib/uuid.js'
 
-// Get target id
-function getTargetId() {
-	return new URL(import.meta.url).searchParams.get('id') ?? 'app_svelte_widget'
-}
-
-// Convert data-* attributes from target to object
-function getData() {
-	const TARGET_JS = getTargetId()
-	const element = globalThis.document.getElementById(TARGET_JS)
-	const data = {}
-	if (element instanceof HTMLElement) {
-		for (const [key, value] of Object.entries(element.dataset)) {
-			data[key] = value
+function create(props, elementType) {
+	const s = globalThis.document.createElement(elementType)
+	const KVs = Object.entries(props)
+	for (const [k, v] of KVs) {
+		if (k === 'dataset') {
+			for (const [dk, dv] of Object.entries(v)) {
+				s[k][dk] = dv
+			}
+		} else {
+			s[k] = v
 		}
 	}
-	return data
+	// return s
+	globalThis.document.head.append(s)
 }
 
 // Load
-function load() {
-	const data = getData()
+async function load() {
 	const rnd = uuid()
-	const id = `app_svelte_${rnd}`
+	const url = getURL(import.meta.url)
+	const _id = getProp(import.meta.url) ?? 'boilerplate_svelte_js'
 
-	const url = data?.url ?? '.'
-	Reflect.deleteProperty(data, 'url')
+	const response = await fetch(`${url}/files.json?noCache=${rnd}`)
+	const files = await response.json()
 
-	const link = globalThis.document.createElement('link')
-	link.rel = 'stylesheet'
-	link.type = 'text/css'
-	link.href = `${url}/scripts/main.css?noCache=${rnd}`
-	link.media = 'all'
+	console.debug('load', {
+		url,
+		_id,
+		files,
+		isEntry: files?.['index.html']?.isEntry,
+	})
 
-	const script = globalThis.document.createElement('script')
-	script.type = 'module'
-	script.id = id
-	script.src = `${url}/scripts/main.js?TARGET_JS=${id}&noCache=${rnd}`
-	for (const [k, v] of Object.entries(data)) {
-		script.dataset[k] = v
+	if (files?.['index.html']?.isEntry === true) {
+		const main = files?.['index.html']
+
+		// Load css/style
+		const css = main?.css ?? []
+		for (const file of css) {
+			console.debug('href css', `${url}/${file}?noCache=${rnd}`)
+			create({
+				href: `${url}/${file}?noCache=${rnd}`,
+				rel: 'stylesheet',
+				type: 'text/css',
+			}, 'link')
+		}
+
+		// Load script
+		console.debug('src main', `${url}/${main.file}?TARGET_JS=${_id}&noCache=${rnd}`)
+		create({
+			src: `${url}/${main.file}?TARGET_JS=${_id}&noCache=${rnd}`,
+			type: 'module',
+		}, 'script')
 	}
-
-	globalThis.document.head.append(link)
-	globalThis.document.head.append(script)
 }
 
-load()
+export default await load()

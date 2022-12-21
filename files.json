@@ -1,0 +1,14 @@
+{
+  "index.html": {
+    "file": "assets/main.js",
+    "src": "index.html",
+    "isEntry": true,
+    "css": [
+      "assets/bundle_31020784.css"
+    ]
+  },
+  "index.css": {
+    "file": "assets/bundle_31020784.css",
+    "src": "index.css"
+  }
+}
