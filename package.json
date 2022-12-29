@@ -21,10 +21,10 @@
     "eslint": "eslint --config .eslintrc.cjs --ext .js,.svelte --ignore-path .gitignore .",
     "test": "run-s eslint",
     "vite:build": "vite build",
-    "build": "run-s prestart vite:build",
-    "prestart": "run-s sprite test",
-    "start": "vite --cors --port ${PORT:-5000} --host ${HOSTNAME_CUSTOM:-0.0.0.0}",
-    "sirv": "sirv ${PUBLIC_DIR:-dist} --dev -eBcm 0 -H ${HOSTNAME_CUSTOM:-0.0.0.0} --port ${PORT:-5000}"
+    "build": "run-s previte vite:build",
+    "previte": "run-s sprite test",
+    "vite": "vite --cors --port ${PORT:-5000} --host ${HOSTNAME_CUSTOM:-0.0.0.0}",
+    "start": "sirv ${PUBLIC_DIR:-dist} --dev -eBcm 0 -H ${HOSTNAME_CUSTOM:-0.0.0.0} --port ${PORT:-5000}"
   },
   "dependencies": {
     "sirv-cli": "2.0.2"
