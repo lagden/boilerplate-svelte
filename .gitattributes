@@ -1,7 +1,8 @@
 # * text=auto
-* text eol=lf
+# * text eol=lf
 
 *.png binary
 *.jpg binary
+*.mp4 binary
 
-/.yarn/** linguist-vendored
+# /.yarn/** linguist-vendored

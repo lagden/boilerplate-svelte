@@ -35,7 +35,7 @@ Existem algumas dependências.
 npx tiged lagden/boilerplate-svelte#main projeto
 cd projeto
 npx tiged lagden/boilerplate-bin/files#main bin --force
-npx tiged lagden/boilerplate-envs/files#main . --force
+npx tiged lagden/boilerplate-envs/files#main .env --force
 npx tiged lagden/boilerplate-eslint/files/frontend#main . --force
 npx tiged lagden/boilerplate-docker-nodejs/files#main . --force
 ```

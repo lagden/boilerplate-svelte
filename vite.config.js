@@ -13,7 +13,7 @@ export default defineConfig({
 		modulePreload: false,
 		outDir: 'dist',
 		emptyOutDir: true,
-		assetsDir: 'assets',
+		assetsDir: 'scripts',
 		manifest: 'files.json',
 		sourcemap: false,
 		minify: 'esbuild',
@@ -23,10 +23,14 @@ export default defineConfig({
 			output: {
 				format: 'es',
 				compact: true,
-				entryFileNames: 'assets/main.js',
-				chunkFileNames: 'assets/[name]-[hash].js',
-				assetFileNames: 'assets/[name].[ext]',
+				entryFileNames: 'scripts/entry.js',
+				chunkFileNames: 'scripts/chunk-[name]-[hash].js',
+				assetFileNames: 'scripts/[name].[ext]',
+				manualChunks: {
+					app: ['src/app.js'],
+				},
 			},
+			// minChunkSize: 5000,
 		},
 	},
 	plugins: [

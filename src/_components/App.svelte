@@ -69,5 +69,7 @@
 		bottom: 0;
 		right: 0;
 		overflow: auto;
+		--clamp: clamp(5rem, 1.2500rem + 16.6667vw, 10rem);
+		@apply w-[var(--clamp)] h-[var(--clamp)];
 	}
 </style>

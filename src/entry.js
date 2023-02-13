@@ -1,8 +1,6 @@
 import {getProp} from '@tadashi/common'
 import {getRender, getEnv, getData} from './lib/env.js'
-
-import './_assets/css/tailwind.css'
-import App from './_components/App.svelte'
+import {app} from './app.js'
 
 const envs = getEnv()
 
@@ -29,6 +27,4 @@ console.debug('envs', envs)
 console.debug('data', data)
 console.info('ヾ(⌐■_■)ノ ....')
 
-const app = new App({target})
-
-export default app
+export default app(target)

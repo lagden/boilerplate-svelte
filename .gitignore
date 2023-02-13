@@ -1,6 +1,7 @@
 #files
 .registry-*
 .env-local
+.env/local.conf.sh
 docker-compose-*.yml
 
 #folders
