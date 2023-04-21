@@ -1,14 +1,17 @@
 {
-  "index.html": {
-    "file": "assets/main.js",
-    "src": "index.html",
-    "isEntry": true,
-    "css": [
-      "assets/bundle_31020784.css"
-    ]
+  "_chunk-app-415e1372.js": {
+    "file": "scripts/chunk-app-415e1372.js"
   },
-  "index.css": {
-    "file": "assets/bundle_31020784.css",
-    "src": "index.css"
+  "index.html": {
+    "file": "scripts/entry.js",
+    "imports": [
+      "_chunk-app-415e1372.js"
+    ],
+    "isEntry": true,
+    "src": "index.html"
+  },
+  "style.css": {
+    "file": "scripts/style.css",
+    "src": "style.css"
   }
 }
