@@ -37,7 +37,7 @@ jobs:
         run: pnpm install
 
       - name: Run build
-        run: bin/local/start -b -e production
+        run: npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
