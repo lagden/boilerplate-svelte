@@ -13,7 +13,7 @@ export function getEnv() {
 
 /**
  * Retorna todos os dados definidos no data-* do elemento
- * @param {string} id - ID do elemento
+ * @param {string|undefined} id - ID do elemento
  * @return {object} Retorna um objeto
  */
 export function getData(id) {
@@ -22,16 +22,18 @@ export function getData(id) {
 		return [..._data][0]
 	}
 
-	const el = globalThis.document.getElementById(id)
 	const o = {}
-	if (el) {
-		for (const [key, value] of Object.entries(el.dataset)) {
-			o[key] = value
-		}
-		o.elementID = id
-		_data.add(o)
-	}
 
+	if (id) {
+		const el = globalThis.document.getElementById(id)
+		if (el) {
+			for (const [key, value] of Object.entries(el.dataset)) {
+				o[key] = value
+			}
+			o.elementID = id
+			_data.add(o)
+		}
+	}
 	return o
 }
 

@@ -57,8 +57,11 @@
 		left: 0;
 		bottom: 0;
 		right: 0;
-		background-color: hsl(20deg 60% 60%/0.1);
 		cursor: move;
+	}
+
+	:global(body) {
+		overflow: hidden;
 	}
 
 	:global(.clamp_logo) {

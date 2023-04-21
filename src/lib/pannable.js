@@ -2,6 +2,9 @@ export function pannable(node) {
 	let x
 	let y
 
+	/**
+	 * @param {{ clientX: any; clientY: any; }} event
+	 */
 	function handleMousedown(event) {
 		x = event.clientX
 		y = event.clientY
@@ -14,6 +17,9 @@ export function pannable(node) {
 		globalThis.addEventListener('mouseup', handleMouseup)
 	}
 
+	/**
+	 * @param {{ clientX: number; clientY: number; }} event
+	 */
 	function handleMousemove(event) {
 		const dx = event.clientX - x
 		const dy = event.clientY - y
@@ -25,6 +31,9 @@ export function pannable(node) {
 		}))
 	}
 
+	/**
+	 * @param {{ clientX: any; clientY: any; }} event
+	 */
 	function handleMouseup(event) {
 		x = event.clientX
 		y = event.clientY
