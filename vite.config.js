@@ -3,7 +3,7 @@ import {defineConfig} from 'vite'
 import {svelte} from '@sveltejs/vite-plugin-svelte'
 
 const {
-	PUBLIC_DIR: outDir = 'dist'
+	PUBLIC_DIR: outDir = 'dist',
 } = process.env
 
 export default defineConfig({
