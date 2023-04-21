@@ -1,5 +1,10 @@
+import process from 'node:process'
 import {defineConfig} from 'vite'
 import {svelte} from '@sveltejs/vite-plugin-svelte'
+
+const {
+	PUBLIC_DIR: outDir = 'dist'
+} = process.env
 
 export default defineConfig({
 	base: './',
@@ -11,7 +16,7 @@ export default defineConfig({
 	build: {
 		target: 'es2022',
 		modulePreload: false,
-		outDir: 'dist',
+		outDir,
 		emptyOutDir: true,
 		assetsDir: 'scripts',
 		manifest: 'files.json',
