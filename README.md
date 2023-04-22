@@ -19,35 +19,22 @@ Boilerplate para desenvolvimento de uma aplicação utilizando Svelte.
 
 ## Instalação
 
-Use o [tiged](https://github.com/tiged/tiged) para fazer o `scaffolding` do projeto.
+Utilize `@tadashi/boilerplate-create` para iniciar o projeto.
 
-Existem algumas dependências.
-
-- [bin](https://github.com/lagden/boilerplate-bin)
-- [envs](https://github.com/lagden/boilerplate-envs)
-- [eslint](https://github.com/lagden/boilerplate-eslint)
-- [docker](https://github.com/lagden/boilerplate-docker-nodejs) (opcional)
-
-
-**Exemplo:**
-
-```shell
-npx tiged lagden/boilerplate-svelte#main projeto
-cd projeto
-npx tiged lagden/boilerplate-bin/files#main bin --force
-npx tiged lagden/boilerplate-envs/files#main .env --force
-npx tiged lagden/boilerplate-eslint/files/frontend#main . --force
-npx tiged lagden/boilerplate-docker-nodejs/files#main . --force
+```
+npm i -g @tadashi/boilerplate-create
+boilerplate-create
 ```
 
----
+ou
 
-⚠️ **Importante**
+```
+npx --yes @tadashi/boilerplate-create
+```
 
-No arquivo `.env-base`, faça alguns ajustes:
+E siga as instruções do prompt.
 
-- Altere a variável de ambiente `REQUIRE_GEN` para `1`, se não estiver!
-- Se estiver utilizando Docker: `DOCKER_TARGET_BUILD=main_frontend`
+<img src="boi.gif" width="640" alt="exemplo" />
 
 
 ## Como utilizar
@@ -55,7 +42,7 @@ No arquivo `.env-base`, faça alguns ajustes:
 Após finalizado o `scaffolding` do projeto, instale os pacotes.
 
 ```shell
-bin/node/zera -m npm
+bin/node/zera -m pnpm
 ```
 
 Feito isso, o projeto está pronto para funcionar.
@@ -113,7 +100,7 @@ echo 'username' > .registry-user
 echo 'password' > .registry-passwd
 ```
 
-Verifique as suas variáveis de ambiente `.env-*`.  
+Verifique as suas variáveis de ambiente `.conf/*.sh`.  
 E para fazer o `push` da imagem de sua aplicação, execute:
 
 ```shell
