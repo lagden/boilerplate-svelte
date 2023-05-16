@@ -13,12 +13,13 @@ module.exports = {
 		// },
 	},
 	plugins: [
-		// // require('@tailwindcss/forms'),
+		// require('@tailwindcss/container-queries'),
+		// require('@tailwindcss/forms'),
+		// require('@tailwindcss/typography'),
 		plugin(({addUtilities}) => {
 			addUtilities({
 				'.items-center-safe': {'align-items': 'safe center'},
 				'.justify-center-safe': {'justify-content': 'safe center'},
-				'.h-auto': {height: 'auto'},
 				'.custom-scrollbar': {
 					'scrollbar-gutter': 'stable',
 					'scrollbar-width': 'thin',
