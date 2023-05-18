@@ -23,28 +23,26 @@
     "vite:build": "vite build",
     "build": "run-s predev vite:build",
     "predev": "run-s sprite test",
-    "dev": "vite --cors --port ${PORT:-5000} --host ${HOSTNAME_CUSTOM:-0.0.0.0}",
-    "start": "sirv ${PUBLIC_DIR:-dist} --dev -eBcm 0 -H ${HOSTNAME_CUSTOM:-0.0.0.0} --port ${PORT:-5000}"
-  },
-  "dependencies": {
-    "sirv-cli": "2.0.2"
+    "dev": "vite --cors --port ${PORT:-5001} --host ${HOSTNAME_CUSTOM:-0.0.0.0}",
+    "start": "sirv ${PUBLIC_DIR:-dist} --dev -eBcm 0 -H ${HOSTNAME_CUSTOM:-0.0.0.0} --port ${PORT:-5001}"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "2.1.0",
+    "@sveltejs/vite-plugin-svelte": "2.2.0",
     "@tadashi/common": "3.3.0",
     "@tadashi/spritetify": "2.2.0",
-    "eslint": "8.38.0",
+    "eslint": "8.40.0",
     "eslint-config-xo": "0.43.1",
     "eslint-plugin-svelte3": "4.0.0",
-    "eslint-plugin-unicorn": "46.0.0",
+    "eslint-plugin-unicorn": "47.0.0",
     "npm-run-all": "4.1.5",
     "postcss": "8.4.23",
     "postcss-import": "15.1.0",
     "postcss-scrollbar": "0.5.1",
-    "svelte": "3.58.0",
+    "sirv-cli": "2.0.2",
+    "svelte": "3.59.1",
     "svelte-preprocess": "5.0.3",
-    "tailwindcss": "3.3.1",
-    "vite": "4.3.1",
+    "tailwindcss": "3.3.2",
+    "vite": "4.3.8",
     "vite-plugin-html": "3.2.0"
   }
 }
