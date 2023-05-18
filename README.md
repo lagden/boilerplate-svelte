@@ -6,7 +6,7 @@
 [xo]:            https://github.com/sindresorhus/xo
 
 
-Boilerplate para desenvolvimento de uma aplicação utilizando Svelte.
+Boilerplate para desenvolvimento de uma aplicação.
 
 - [Instalação](#instalação)
 - [Como utilizar](#como-utilizar)
@@ -126,6 +126,11 @@ O fluxo do sistema de **deploy** é simples:
 ```shell
 bin/docker/deploy -e production
 ```
+
+
+## Donate ❤️
+
+- BTC: bc1q7famhuj5f25n6qvlm3sssnymk2qpxrfwpyq7g4
 
 
 ## License
