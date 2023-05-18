@@ -1,11 +1,11 @@
 {
-  "_chunk-app-415e1372.js": {
-    "file": "scripts/chunk-app-415e1372.js"
+  "_chunk-app-8b9c53ca.js": {
+    "file": "scripts/chunk-app-8b9c53ca.js"
   },
   "index.html": {
     "file": "scripts/entry.js",
     "imports": [
-      "_chunk-app-415e1372.js"
+      "_chunk-app-8b9c53ca.js"
     ],
     "isEntry": true,
     "src": "index.html"
