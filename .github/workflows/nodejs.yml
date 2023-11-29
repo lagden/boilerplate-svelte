@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
 
     steps:
       - name: Checkout
@@ -30,8 +30,10 @@ jobs:
         run: |
           npx tiged lagden/boilerplate-bin/files#main bin --force
           npx tiged lagden/boilerplate-envs/files#main .conf --force
-          npx tiged lagden/boilerplate-eslint/files/frontend#main . --force
+          npx tiged lagden/boilerplate-docker-nodejs/files#main . --force
           cp .conf/base.front.sh .conf/base.sh
+          cp .conf/development.front.sh .conf/development.sh
+          rm .conf/base.*.sh .conf/development.*.sh
 
       - name: Install dependencies
         run: pnpm install
