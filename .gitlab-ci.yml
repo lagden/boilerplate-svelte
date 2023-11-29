@@ -1,10 +1,10 @@
 variables:
-  KUBE_NAMESPACE: certisign
-  HELM_RELEASE_NAME: iframe
+  KUBE_NAMESPACE: boilerplate
+  HELM_RELEASE_NAME: svelte
 
 include:
   - project: "inovacao/devops/template-cicd"
-    file: "build-svelte.yaml"
+    file: "build-nodejs.yaml"
   - project: "inovacao/devops/template-cicd"
     file: "deploy.yaml"
 
