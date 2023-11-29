@@ -10,8 +10,7 @@ parserOptions:
 extends:
   - eslint:recommended
   - plugin:svelte/recommended
-  - prettier
-  # - plugin:unicorn/recommended
+  - plugin:unicorn/recommended
 rules:
   camelcase: off
   capitalized-comments: off
@@ -30,18 +29,19 @@ rules:
   no-undef-init: off
   no-unused-expressions:
     - error
-    - allowShortCircuit: true
+    -
+      allowShortCircuit: true
       allowTernary: true
       allowTaggedTemplates: true
   padding-line-between-statements: off
   quotes: [error, single]
-  semi: [error, never]
+  semi:  [error, never]
   semi-spacing:
     - error
-    - before: false
+    -
+      before: false
       after: true
   spaced-comment: off
-  svelte/no-at-html-tags: off
   # unicorn/consistent-destructuring: off
   unicorn/filename-case: off
   # unicorn/import-style:
@@ -62,4 +62,3 @@ rules:
   # unicorn/prefer-object-from-entries: off
   unicorn/prefer-query-selector: off
   unicorn/prevent-abbreviations: off
-  unicorn/prefer-top-level-await: off

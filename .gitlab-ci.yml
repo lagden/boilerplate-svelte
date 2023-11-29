@@ -1,6 +1,6 @@
 variables:
-  KUBE_NAMESPACE: boilerplate
-  HELM_RELEASE_NAME: svelte
+  KUBE_NAMESPACE: certisign
+  HELM_RELEASE_NAME: iframe
 
 include:
   - project: "inovacao/devops/template-cicd"

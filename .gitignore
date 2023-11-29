@@ -3,6 +3,10 @@
 dist
 resource
 
+.registry-*
+_init
+_cleanup
+
 # node
 node_modules
 
