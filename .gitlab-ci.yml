@@ -1,0 +1,16 @@
+variables:
+  KUBE_NAMESPACE: boilerplate
+  HELM_RELEASE_NAME: svelte
+
+include:
+  - project: "inovacao/devops/template-cicd"
+    file: "build-svelte.yaml"
+  - project: "inovacao/devops/template-cicd"
+    file: "deploy.yaml"
+
+build:
+  extends: .build
+
+stages:
+  - build
+  - deploy
