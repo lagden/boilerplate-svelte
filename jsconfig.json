@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
     "target": "esnext",
-    "module": "esnext",
     "isolatedModules": true,
     "resolveJsonModule": true,
     "sourceMap": true,
@@ -15,8 +15,6 @@
   "include": [
     "src/**/*.d.ts",
     "src/**/*.js",
-    "src/**/*.svelte",
-    "src/**/*.sass",
-    "src/**/*.scss"
+    "src/**/*.svelte"
   ]
 }

@@ -1,10 +1,8 @@
+import process from 'node:process'
 import sveltePreprocess from 'svelte-preprocess'
 import postcss from './postcss.config.js'
-import envs from './resource/env.js'
 
-const {
-	NODE_ENV = 'development',
-} = envs
+const {NODE_ENV = 'development'} = process.env
 
 const production = NODE_ENV === 'production'
 

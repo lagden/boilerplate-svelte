@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# bin
+rm -rf bin
+
+# docker
+rm .dockerignore
+rm docker-compose*
+rm Dockerfile*
+
+# envs
+rm -rf .conf
+
+# eslint
+# rm .eslint*
+
+# node
+rm -rf \
+	node_modules \
+	package-lock.json \
+	pnpm-lock.yaml \
+	yarn.lock \
+	.yarn \
+	.yarnrc.yml \
+	.pnp.*
+
+exit 0

@@ -1,11 +1,5 @@
 # Boilerplate Svelte
 
-[![XO code style][xo-img]][xo]
-
-[xo-img]:        https://img.shields.io/badge/code_style-XO-5ed9c7.svg
-[xo]:            https://github.com/sindresorhus/xo
-
-
 Boilerplate para desenvolvimento de uma aplicação.
 
 - [Instalação](#instalação)
@@ -33,8 +27,6 @@ npx --yes @tadashi/boilerplate-create
 ```
 
 E siga as instruções do prompt.
-
-<img src="boi.gif" width="640" alt="exemplo" />
 
 
 ## Como utilizar
@@ -72,23 +64,6 @@ bin/docker/start -b
 ### Teste
 
 🚧 WIP
-
-
-### Sprites
-
-No projeto tem o arquivo `src/_components/_global/Sprite.svelte`.  
-Ele é gerado automaticamente pelo `spritetify`
-
-```shell
-npm run sprite
-```
-
-O script pega todos os arquivos **\*.svg** que estão na pasta `src/_assets/svg` e gera o sprite.
-
-⚠️ **Ressalvas**
-
-No arquivo `spritetify.config.json` é possível setar as propriedades de otimização.  
-As opções são as mesmas do [SVGO](https://github.com/svg/svgo#built-in-plugins).
 
 
 ## Imagem

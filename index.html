@@ -1,19 +1,43 @@
-<!DOCTYPE html>
-<html lang="pt-BR" dir="ltr">
+<!doctype html>
+<html
+	lang="pt-BR"
+	dir="ltr"
+>
 	<head>
-		<!-- <base href="{%= base %}"> -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="{%= description %}">
-		<meta name="theme-color" content="#878787">
-		<title>{%= title %}</title>
-		<link rel="icon" href="favicon/favicon.png" type="image/png" sizes="any">
-		<link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
-		<link rel="manifest" href="manifest.json">
+		<!-- <base href="%APP_BASE%"> -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1"
+		/>
+		<meta
+			name="description"
+			content="%APP_DESCRIPTION%"
+		/>
+		<meta
+			name="theme-color"
+			content="#878787"
+		/>
+		<title>%APP_TITLE%</title>
+		<link
+			rel="icon"
+			href="favicon/favicon.png"
+			type="image/png"
+			sizes="any"
+		/>
+		<link
+			rel="icon"
+			href="favicon/favicon.svg"
+			type="image/svg+xml"
+		/>
+		<link
+			rel="manifest"
+			href="manifest.json"
+		/>
 		<script
 			type="module"
-			id="{%= target_js %}"
-			src="/src/entry.js?TARGET_JS={%= target_js %}"
+			id="%APP_TARGET_JS%"
+			src="/src/entry.js?TARGET_JS=%APP_TARGET_JS%"
 		></script>
 	</head>
 	<body></body>
