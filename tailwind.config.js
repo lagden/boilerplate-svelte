@@ -34,8 +34,5 @@ export default {
 	theme: {
 		extend: {},
 	},
-	plugins: [
-		containerQueries,
-		daisyui,
-	],
+	plugins: [containerQueries, daisyui],
 }
