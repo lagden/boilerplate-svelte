@@ -1,7 +1,6 @@
 root: true
 env:
   es2022: true
-  browser: true
   node: true
 parserOptions:
   ecmaVersion: 13
@@ -9,6 +8,7 @@ parserOptions:
   extraFileExtensions: ['.svelte']
 extends:
   - eslint:recommended
+  - plugin:sonarjs/recommended
   - plugin:svelte/recommended
   - plugin:unicorn/recommended
 rules:

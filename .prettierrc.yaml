@@ -25,3 +25,7 @@ overrides:
       # svelteStrictMode: false
       svelteAllowShorthand: true
       svelteIndentScriptAndStyle: false
+  - files: ['*.md', '*.yaml', '*.yml', '*.json', '*.graphql']
+    options:
+      useTabs: false
+      tabWidth: 2
