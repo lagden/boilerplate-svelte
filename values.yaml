@@ -24,4 +24,4 @@ autoscaling:
 
 extraEnv:
   - name: TZ
-    value: "America/Sao_Paulo"
+    value: 'America/Sao_Paulo'
