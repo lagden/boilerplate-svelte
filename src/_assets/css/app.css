@@ -1,12 +1,2 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* @layer base, components, utilities, app; */
-@layer base {
-	body {
-		@apply
-			bg-slate-800
-			;
-	}
-}
+@import "./_base.css";
+/* @import "./others.css"; */

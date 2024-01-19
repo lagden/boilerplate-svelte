@@ -4,12 +4,11 @@ Boilerplate para desenvolvimento de uma aplicação.
 
 - [Instalação](#instalação)
 - [Como utilizar](#como-utilizar)
-    - [Teste](#teste)
-    - [Sprites](#sprites)
+  - [Teste](#teste)
+  - [Sprites](#sprites)
 - [Imagem (docker)](#imagem-docker)
 - [Deploy (docker)](#deploy-docker)
 - [License](#license)
-
 
 ## Instalação
 
@@ -27,7 +26,6 @@ npx --yes @tadashi/boilerplate-create
 ```
 
 E siga as instruções do prompt.
-
 
 ## Como utilizar
 
@@ -60,11 +58,9 @@ Pare o container (`bin/docker/stop` ou `control + c`) e rode novamente passando 
 bin/docker/start -b
 ```
 
-
 ### Teste
 
 🚧 WIP
-
 
 ## Imagem
 
@@ -81,7 +77,6 @@ E para fazer o `push` da imagem de sua aplicação, execute:
 ```shell
 bin/docker/image -e production
 ```
-
 
 ## Deploy
 
@@ -102,11 +97,9 @@ O fluxo do sistema de **deploy** é simples:
 bin/docker/deploy -e production
 ```
 
-
 ## Donate ❤️
 
 - BTC: bc1q7famhuj5f25n6qvlm3sssnymk2qpxrfwpyq7g4
-
 
 ## License
 

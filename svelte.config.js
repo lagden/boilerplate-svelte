@@ -34,9 +34,6 @@ export default {
 	// esbuild
 	filterWarnings(warning) {
 		// console.log('------------------>>>', JSON.stringify(warning, undefined, '  '))
-		if (ignoreWarnings.has(warning.code)) {
-			return false
-		}
-		return true
+		return !ignoreWarnings.has(warning.code)
 	},
 }
