@@ -35,7 +35,7 @@ jobs:
           rm .conf/base.*.sh .conf/development.*.sh
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm i
 
       - name: Run build
         run: bin/local/start -bi -e production
