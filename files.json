@@ -1,14 +1,14 @@
 {
-  "_chunk-app-BE8u40BB.js": {
-    "file": "scripts/chunk-app-BE8u40BB.js"
+  "_chunk-app-BEAxJAmo.js": {
+    "file": "scripts/chunk-app-BEAxJAmo.js"
   },
   "index.html": {
     "file": "scripts/entry.js",
-    "imports": [
-      "_chunk-app-BE8u40BB.js"
-    ],
+    "src": "index.html",
     "isEntry": true,
-    "src": "index.html"
+    "imports": [
+      "_chunk-app-BEAxJAmo.js"
+    ]
   },
   "style.css": {
     "file": "scripts/style.css",
