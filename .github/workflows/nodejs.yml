@@ -31,8 +31,7 @@ jobs:
           npx tiged lagden/boilerplate-bin/files#main bin --force
           npx tiged lagden/boilerplate-envs/files#main .conf --force
           cp .conf/base.front.sh .conf/base.sh
-          cp .conf/development.front.sh .conf/development.sh
-          rm .conf/base.*.sh .conf/development.*.sh
+          rm .conf/base.*.sh
 
       - name: Install dependencies
         run: pnpm i
