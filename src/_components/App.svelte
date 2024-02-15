@@ -5,6 +5,6 @@ import Pan from './sample/Pan.svelte'
 
 <Head />
 
-<main class="grid place-items-center min-h-screen">
+<main class="@container/main grid place-items-center min-h-screen">
 	<Pan />
 </main>

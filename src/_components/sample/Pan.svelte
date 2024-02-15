@@ -44,6 +44,6 @@ function handlePanEnd() {
 	<Icon
 		src={IconsHero.GlobeAlt}
 		size="200"
-		class="text-emerald-500"
+		class="text-emerald-500 @2xl/main:text-sky-500"
 	/>
 </div>

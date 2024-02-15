@@ -6,8 +6,8 @@ import daisyuiThemes from 'daisyui/src/theming/themes.js'
 
 const {winter, night} = daisyuiThemes
 
+// prettier-ignore
 export default {
-	// prettier-ignore
 	content: [
 		'./src/**/*.{svelte,html,js,ts}',
 		'./node_modules/@texsvelte/**/*.{svelte,html,js,ts}',
@@ -34,5 +34,8 @@ export default {
 	theme: {
 		extend: {},
 	},
-	plugins: [containerQueries, daisyui],
+	plugins: [
+		containerQueries,
+		daisyui,
+	],
 }
