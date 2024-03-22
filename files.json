@@ -1,9 +1,11 @@
 {
   "_chunk-app-BEAxJAmo.js": {
-    "file": "scripts/chunk-app-BEAxJAmo.js"
+    "file": "scripts/chunk-app-BEAxJAmo.js",
+    "name": "app"
   },
   "index.html": {
     "file": "scripts/entry.js",
+    "name": "index",
     "src": "index.html",
     "isEntry": true,
     "imports": [
