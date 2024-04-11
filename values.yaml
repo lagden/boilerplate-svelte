@@ -1,0 +1,27 @@
+service:
+  enabled: true
+  port: 5001
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 50Mi
+
+ingress:
+  enabled: true
+  domain: 'boilerplate.io'
+  host: 'svelte'
+  path: '/'
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: '15m'
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 85
+  targetMemoryUtilizationPercentage: 85
+
+extraEnv:
+  - name: TZ
+    value: 'America/Sao_Paulo'

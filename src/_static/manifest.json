@@ -1,0 +1,23 @@
+{
+  "name": "Boilerplate",
+  "short_name": "Boilerplate",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#878787",
+  "description": "Boilerplate Svelte using Vite for development",
+  "start_url": "/?utm_source=homescreen",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "favicon/favicon_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

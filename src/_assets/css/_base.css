@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer base, components, utilities; */
+
+@layer base {
+	[data-theme] {
+		@apply
+			bg-base-100
+			text-base-content
+			;
+
+		/* @tadashi/svelte-notification */
+		--tadashi_svelte_notification_background: oklch(var(--n));
+		--tadashi_svelte_notification_color: oklch(var(--nc));
+		--tadashi_svelte_notification__info_background: oklch(var(--in));
+		--tadashi_svelte_notification__info_color: oklch(var(--inc));
+		--tadashi_svelte_notification__success_background: oklch(var(--su));
+		--tadashi_svelte_notification__success_color: oklch(var(--suc));
+		--tadashi_svelte_notification__warning_background: oklch(var(--wa));
+		--tadashi_svelte_notification__warning_color: oklch(var(--wac));
+		--tadashi_svelte_notification__danger_background: oklch(var(--er));
+		--tadashi_svelte_notification__danger_color: oklch(var(--erc));
+
+		/* @tadashi/svelte-notification */
+		--uib-color: oklch(var(--bc));
+		--tadashi_svelte_loading_background_color: oklch(var(--b1) / 80%);
+	}
+
+	body {
+		overflow: hidden;
+		overflow-y: auto;
+		scrollbar-gutter: stable;
+		overscroll-behavior-y: contain;
+	}
+}
