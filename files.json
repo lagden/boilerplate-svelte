@@ -1,6 +1,6 @@
 {
-  "_chunk-app-BEAxJAmo.js": {
-    "file": "scripts/chunk-app-BEAxJAmo.js",
+  "_chunk-app-xZPRaBZf.js": {
+    "file": "scripts/chunk-app-xZPRaBZf.js",
     "name": "app"
   },
   "index.html": {
@@ -9,7 +9,7 @@
     "src": "index.html",
     "isEntry": true,
     "imports": [
-      "_chunk-app-BEAxJAmo.js"
+      "_chunk-app-xZPRaBZf.js"
     ]
   },
   "style.css": {
